@@ -1,9 +1,9 @@
 module.exports = {
-  content: ['*.html', './src/**/*.{html,js}', './node_modules/@themesberg/flowbite/**/*.js'],
+  content: ['*.html', './src/**/*.{html,js}'],
   theme: {
     extend: {
       fontFamily: {
-        bevietnam: 'Be Vietnam Pro',
+        montserrat: 'Montserrat',
       },
     },
   },
@@ -11,6 +11,6 @@ module.exports = {
     // eslint-disable-next-line global-require
     require('@tailwindcss/forms'),
     // eslint-disable-next-line global-require
-    require('@themesberg/flowbite/plugin'),
+    require('daisyui'),
   ],
 };
