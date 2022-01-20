@@ -28,10 +28,6 @@ const Footer = {
             </div>
         </div>
         <p class="w-full text-center font-light">Copyright &copy; 2022 DQL</p>
-        <!-- SCROLL UP -->
-        <a href="#" id="scroll-up" class=" text-black text-4xl fixed bottom-2 right-4 hover:text-red-400 transition-all">
-            <i class="ri-arrow-up-circle-line"></i>
-        </a>
     </div>
         `;
   },

@@ -6,7 +6,7 @@ const Nav = {
             <a href="" class="text-gray-600 hover:text-purple-600 p-4 block">Shop</a>
             <a href="" class="text-gray-600 hover:text-purple-600 p-4 block">Blog</a>
             <a href="" class="text-gray-600 hover:text-purple-600 p-4 block">News</a>
-            <a href=""
+            <a href="/login"
             class="bg-cyan-600 text-gray-50 hover:bg-cyan-700 py-2 mr-2 px-5 rounded-full transition-colors">Login</a>
             <a href=""
             class="bg-purple-600 text-gray-50 hover:bg-purple-700 py-2 mr-2 px-5 rounded-full transition-colors"><i
@@ -19,7 +19,7 @@ const Nav = {
                     <small>linhdq@gmail.com</small>
                 </li>
                 <li>
-                    <a>Dashboard</a>
+                    <a href="/admin/dashboard">Dashboard</a>
                 </li> 
                 <li>
                     <a>Settings</a>
