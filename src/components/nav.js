@@ -19,7 +19,7 @@ const Nav = {
                     <small>linhdq@gmail.com</small>
                 </li>
                 <li>
-                    <a href="/admin/dashboard">Dashboard</a>
+                    <a href="/#/admin/dashboard">Dashboard</a>
                 </li> 
                 <li>
                     <a>Settings</a>

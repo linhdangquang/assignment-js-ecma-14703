@@ -1,6 +1,6 @@
 const navDData = [
   { name: 'Dashboard', url: '/admin/dashboard', icon: 'ri-dashboard-line' },
-  { name: 'Products', url: '/admin/products/products', icon: 'ri-handbag-line' },
+  { name: 'Products', url: '/#/admin/products/products', icon: 'ri-handbag-line' },
   { name: 'Settings', url: '/admin/settings', icon: 'ri-settings-2-line' },
   { name: 'Logout', url: '/logout', icon: 'ri-logout-circle-line' },
 ];
