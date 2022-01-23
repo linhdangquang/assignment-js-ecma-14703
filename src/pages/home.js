@@ -5,6 +5,7 @@ import NewsLetter from '../components/news-letter';
 import ListItem from '../components/list-items';
 
 const HomePage = {
+
   render() {
     return /* html */ `
         <div class="container mx-auto p-5 font-montserrat">
@@ -16,5 +17,6 @@ const HomePage = {
         </div>
         `;
   },
+
 };
 export default HomePage;

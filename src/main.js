@@ -1,19 +1,21 @@
 import 'remixicon/fonts/remixicon.css';
+import 'sweetalert2/dist/sweetalert2.min.css';
 import Navigo from 'navigo';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 // ADMIN
 import Dashboard from './pages/admin/dashboard';
-import ProductsAdmin from './pages/admin/products';
+import ProductsAdmin from './pages/admin/products/products';
+import AddProductPage from './pages/admin/products/add';
+import EditProductPage from './pages/admin/products/edit';
 
 const container = document.querySelector('#container');
-const router = new Navigo('/', { linksSelector: 'a' });
-const print = (content) => {
-  container.innerHTML = content.render();
-};
-const printAwait = async (content) => {
-  container.innerHTML = await content.render();
+const router = new Navigo('/', { linksSelector: 'a', hash: true });
+
+const print = async (content, id) => {
+  container.innerHTML = await content.render(id);
+  if (content.afterRender) content.afterRender(id);
 };
 
 router.on({
@@ -34,9 +36,18 @@ router.on({
     print(Dashboard);
     document.title = 'Dashboard';
   },
-  '/admin/products': () => {
-    printAwait(ProductsAdmin);
+  '/admin/products/products': () => {
+    print(ProductsAdmin);
     document.title = 'Products';
+  },
+  '/admin/products/add': () => {
+    print(AddProductPage);
+    document.title = 'Add Product';
+  },
+  '/admin/products/edit/:id': ({ data }) => {
+    const { id } = data;
+    print(EditProductPage, id);
+    document.title = 'Edit Product';
   },
 });
 router.resolve();
