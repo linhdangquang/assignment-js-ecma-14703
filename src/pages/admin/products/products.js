@@ -15,7 +15,7 @@ const ProductsAdmin = {
         <div class="px-7 py-5">
           <div class="mb-1 px-4 rounded-t-xl py-3 shadow-md border-b-2 border-gray-300 bg-slate-300">
             <div class="flex flex-wrap items-center">
-              <div class="relative w-full max-w-full flex-grow flex-1">
+              <div class="relative w-full max-w-full flex-grow flex-1" id="product-table">
                 <h3 class="font-semibold text-lg text-gray-500">
                     Products Table
                 </h3>
@@ -76,12 +76,13 @@ const ProductsAdmin = {
           confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
           if (result.isConfirmed) {
-            delProduct(id);
-            Swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success',
-            );
+            delProduct(id).then(() => {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success',
+              );
+            });
           }
         });
       });

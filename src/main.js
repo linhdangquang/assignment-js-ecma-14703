@@ -1,5 +1,6 @@
 import 'remixicon/fonts/remixicon.css';
 import 'sweetalert2/dist/sweetalert2.min.css';
+
 import Navigo from 'navigo';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
@@ -9,6 +10,8 @@ import Dashboard from './pages/admin/dashboard';
 import ProductsAdmin from './pages/admin/products/products';
 import AddProductPage from './pages/admin/products/add';
 import EditProductPage from './pages/admin/products/edit';
+import ProductsPage from './pages/products';
+import ProductSinglePage from './pages/single-product';
 
 const container = document.querySelector('#container');
 const router = new Navigo('/', { linksSelector: 'a', hash: true });
@@ -27,6 +30,14 @@ router.on({
   '/signup': () => {
     print(SignUpPage);
     document.title = 'Sign Up';
+  },
+  '/products': () => {
+    print(ProductsPage);
+
+    document.title = 'Products';
+  },
+  '/product': () => {
+    print(ProductSinglePage);
   },
   '/admin/dashboard': () => {
     print(Dashboard);

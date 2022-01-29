@@ -2,10 +2,10 @@ const Nav = {
   render() {
     return /* html */`
         <nav class="mt-2 flex flex-row items-center">
-            <a href="/" class="text-gray-600 hover:text-purple-600 p-4 block">Home</a>
-            <a href="" class="text-gray-600 hover:text-purple-600 p-4 block">Shop</a>
-            <a href="" class="text-gray-600 hover:text-purple-600 p-4 block">Blog</a>
-            <a href="" class="text-gray-600 hover:text-purple-600 p-4 block">News</a>
+            <a href="/" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Home</a>
+            <a href="/products" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Shop</a>
+            <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Blog</a>
+            <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">News</a>
             <a href="/#/login"
             class="bg-cyan-600 text-gray-50 hover:bg-cyan-700 py-2 mr-2 px-5 rounded-full transition-colors">Login</a>
             <a href=""
