@@ -1,11 +1,12 @@
 import { getAllProducts } from '../../../../api/products';
+import USDFormat from '../../../../utils/currencyFormat';
 
 const ProductsTable = {
   async render() {
     const products = await getAllProducts();
     return /* html */`
         ${products.data.map((product, idx) => /* html */ `
-        <tr class="hover">
+        <tr class="hover p-2">
           <th>
             <label>
               <input type="checkbox" class="checkbox checkbox-secondary focus:outline-0 focus:ring-pink-400 border-pink-300">
@@ -13,8 +14,8 @@ const ProductsTable = {
           </th>
           <td class="font-semibold text-gray-500">${idx + 1}</td>
           <td>${product.name}</td>
-          <td>${product.price}</td>
-          <td><img src="${product.img}" class="w-24"></td>
+          <td>${USDFormat.format(product.price)}</td>
+          <td><img  src="${product.img}" class="w-24"></td>
           <td>${product.createdAt}</td>
           <td>
             <div class="dropdown dropdown-end">

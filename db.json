@@ -1,14 +1,6 @@
 {
   "products": [
     {
-      "createdAt": "2022-01-19T18:56:24.834Z",
-      "name": "Đồ siêu đẹp super idol 2hand",
-      "img": "http://placeimg.com/640/480/fashion",
-      "price": "9999999",
-      "desc": "OKLAAAAAAAAAA123139182",
-      "id": "2"
-    },
-    {
       "createdAt": "2022-01-20T05:07:54.777Z",
       "name": "Intelligent Wooden Salad",
       "img": "http://placeimg.com/640/480/fashion",
@@ -31,6 +23,15 @@
       "price": "540.00",
       "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
       "id": "12"
+    },
+    {
+      "name": "Mèo vàng siêu cấp",
+      "price": "958",
+      "desc": "Mèo này không ",
+      "createdAt": "2022/02/09 21:34:28",
+      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1644417342/products/pxintm2rnckxrgruobsi.png",
+      "id": "7qfJx-j"
     }
-  ]
+  ],
+  "users": []
 }

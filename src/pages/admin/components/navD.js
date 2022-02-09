@@ -8,8 +8,8 @@ const navDData = [
 const NavAdmin = {
   render() {
     return /* html */ `
-    <nav class ="min-h-screen flex flex-row w-64 pr-14">
-    <div class="min-h-screen flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden fixed top-0 left-0  ">
+    <nav class ="min-h-screen flex flex-row w-64 pr-14 ">
+    <div class="min-h-screen h-full flex flex-col w-56 bg-white rounded-r-3xl z-50 overflow-hidden fixed top-0 left-0  ">
     <div class="flex items-center justify-center h-20 shadow-md">
         <h1 class="text-3xl font-black uppercase text-pink-600">LinhDQ</h1>
     </div>

@@ -5,6 +5,7 @@ import HeaderAdmin from '../components/headerD';
 import NavAdmin from '../components/navD';
 import Toast from '../components/toastAlert';
 import currentDateTime from '../../../utils/currentDateTime';
+import LoadingRequest from '../components/loadingRequest';
 
 const EditProductPage = {
   async render(id) {
@@ -59,13 +60,14 @@ const EditProductPage = {
         denyButtonText: 'Don\'t save',
       }).then((result) => {
         if (result.isConfirmed) {
+          LoadingRequest.loading();
           updateProduct({
             id,
             name: document.querySelector('#name').value,
             price: document.querySelector('#price').value,
             desc: document.querySelector('#desc').value,
             createdAt: currentDateTime,
-          }).then((data) => { console.log(data); });
+          }).then(() => { LoadingRequest.stopLoading(); });
           Toast.fire({
             icon: 'success',
             title: 'Saved',
