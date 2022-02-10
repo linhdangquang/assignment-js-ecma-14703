@@ -17,21 +17,32 @@
       "id": "11"
     },
     {
-      "createdAt": "2022-01-23T04:20:34.176Z",
+      "createdAt": "2022/02/10 14:07:00",
       "name": "Practical Plastic Car",
       "img": "http://placeimg.com/640/480/fashion",
-      "price": "540.00",
+      "price": "5480.00",
       "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
       "id": "12"
     },
     {
       "name": "Mèo vàng siêu cấp",
-      "price": "958",
+      "price": "999",
       "desc": "Mèo này không ",
-      "createdAt": "2022/02/09 21:34:28",
+      "createdAt": "2022/02/10 00:29:31",
       "img": "http://res.cloudinary.com/linh-asm/image/upload/v1644417342/products/pxintm2rnckxrgruobsi.png",
       "id": "7qfJx-j"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "linh@gmail.com",
+      "password": "$2a$10$nIL1qUpSrbfHFNNwU3nH7udBCRCeq5KxIoYUEnzMwJCYTTm5wNNUy",
+      "id": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$Hlp9MLn/1T569IBLjrSrSOk7khvb9cChU.ACQMgLtYctaSk6v3q2y",
+      "id": 2
+    }
+  ]
 }

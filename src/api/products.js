@@ -21,5 +21,5 @@ export const delProduct = (id) => {
 
 export const updateProduct = (product) => {
   const url = `/products/${product.id}`;
-  return instance.put(url, product);
+  return instance.patch(url, product);
 };

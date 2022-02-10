@@ -67,10 +67,12 @@ const EditProductPage = {
             price: document.querySelector('#price').value,
             desc: document.querySelector('#desc').value,
             createdAt: currentDateTime,
-          }).then(() => { LoadingRequest.stopLoading(); });
-          Toast.fire({
-            icon: 'success',
-            title: 'Saved',
+          }).then(() => {
+            LoadingRequest.stopLoading();
+            Toast.fire({
+              icon: 'success',
+              title: 'Saved',
+            });
           });
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info');

@@ -14,5 +14,8 @@ const SignUpPage = {
     </div>
     `;
   },
+  afterRender() {
+    SignupForm.afterRender();
+  },
 };
 export default SignUpPage;

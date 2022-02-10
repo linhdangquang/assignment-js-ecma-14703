@@ -14,6 +14,9 @@ const LoginPage = {
         </div>
     `;
   },
+  afterRender() {
+    LoginForm.afterRender();
+  },
 };
 
 export default LoginPage;
