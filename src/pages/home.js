@@ -5,17 +5,19 @@ import NewsLetter from '../components/news-letter';
 import ListItem from '../components/list-items';
 
 const HomePage = {
-
-  render() {
+  async render() {
     return /* html */ `
         <div class="container mx-auto p-5 font-montserrat">
             ${Header.render()}
             ${HeroSections.render()}
-            ${ListItem.render()}
+            ${await ListItem.render()}
             ${NewsLetter.render()}
             ${Footer.render()}
         </div>
         `;
+  },
+  afterRender() {
+    Header.afterRender();
   },
 
 };

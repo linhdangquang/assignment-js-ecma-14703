@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 module.exports = {
   content: ['*.html', './src/**/*.{html,js}'],
   theme: {
@@ -9,9 +10,7 @@ module.exports = {
     },
   },
   plugins: [
-    // eslint-disable-next-line global-require
     require('@tailwindcss/forms'),
-    // eslint-disable-next-line global-require
     require('daisyui'),
   ],
 };

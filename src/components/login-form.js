@@ -29,8 +29,8 @@ const LoginForm = {
                     </a>
                   </div>
                 </div>
-                <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
-                  type="password" placeholder="Enter your password" id="password">
+                  <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"
+                    type="password" placeholder="Enter your password" id="password">
               </div>
               <div class="mt-10">
                 <button type="submit" class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
@@ -125,7 +125,10 @@ const LoginForm = {
           icon: 'success',
           title: 'Signed in successfully',
         });
-        document.location.href = '/#/';
+        localStorage.setItem('user', JSON.stringify(result.data.user));
+        if (result.data.user.id === 2) {
+          document.location.href = '/#/';
+        }
       } catch (error) {
         Toast.fire({
           icon: 'error',

@@ -4,12 +4,12 @@ import Header from '../components/header';
 import ListItem from '../components/list-items';
 
 const ProductsPage = {
-  render() {
+  async render() {
     return /* html */`
       <div class="container mx-auto p-5 font-montserrat">
         ${Header.render()}
         ${BannerProducts.render()}
-        ${ListItem.render()}
+        ${await ListItem.render()}
         ${Footer.render()}
       </div>
     `;

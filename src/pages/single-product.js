@@ -1,22 +1,26 @@
 import Footer from '../components/footer';
 import Header from '../components/header';
+import { getProductById } from '../api/products';
+import USDFormat from '../utils/currencyFormat';
 
 const ProductSinglePage = {
-  render() {
+  async render(id) {
+    const { data } = await getProductById(id);
+    document.title = data.name;
     return /* html */`
     <div class="container mx-auto p-5 font-montserrat">
       ${Header.render()}
       <main>
         <div class="py-4 grid grid-cols-2 gap-4 items-start">
           <div>
-            <img src="https://bizweb.dktcdn.net/100/438/926/products/plainback8344aca45f634064bbc4b.png?v=1633577942410" alt="" class="">
+            <img src="${data.img}" alt="" class="">
           </div>
           <div class="pt-6">
             <div class="mb-4">
-            <a href="" class="hover:text-green-700"><i class="ri-arrow-left-s-fill align-middle"></i><small>Go back</small></a>
+            <a href="/products" class="hover:text-green-700"><i class="ri-arrow-left-s-fill align-middle"></i><small>Go back</small></a>
             </div>
-            <h3 class="text-xl font-bold pb-1">Lorem ipsum dolor, sit amet consectetur</h3>
-            <h4 class="text-xl text-teal-500 font-semibold pb-4">$499.00</h4>
+            <h3 class="text-xl font-bold pb-1">${data.name}</h3>
+            <h4 class="text-xl text-teal-500 font-semibold pb-4">${USDFormat(data.price)}</h4>
             <div class="pb-4">
               <div class="flex gap-1">
                 <small class="font-medium">Availability: </small>
@@ -62,5 +66,6 @@ const ProductSinglePage = {
   </div>
     `;
   },
+
 };
 export default ProductSinglePage;

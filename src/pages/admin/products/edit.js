@@ -49,7 +49,7 @@ const EditProductPage = {
   },
   afterRender(id) {
     const form = document.getElementById('product-form');
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       Swal.fire({
         title: 'Do you want to save the changes?',
@@ -73,6 +73,7 @@ const EditProductPage = {
               icon: 'success',
               title: 'Saved',
             });
+            document.location.href = '/admin/products/products';
           });
         } else if (result.isDenied) {
           Swal.fire('Changes are not saved', '', 'info');

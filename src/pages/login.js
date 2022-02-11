@@ -16,6 +16,7 @@ const LoginPage = {
   },
   afterRender() {
     LoginForm.afterRender();
+    Header.afterRender();
   },
 };
 

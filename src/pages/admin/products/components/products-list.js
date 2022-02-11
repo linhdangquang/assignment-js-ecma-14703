@@ -13,8 +13,8 @@ const ProductsTable = {
             </label>
           </th>
           <td class="font-semibold text-gray-500">${idx + 1}</td>
-          <td>${product.name}</td>
-          <td>${USDFormat.format(product.price)}</td>
+          <td class="name-product">${product.name}</td>
+          <td>${USDFormat(product.price)}</td>
           <td><img  src="${product.img}" class="w-24"></td>
           <td>${product.createdAt}</td>
           <td>

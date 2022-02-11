@@ -21,6 +21,21 @@ const print = async (content, id) => {
   if (content.afterRender) content.afterRender(id);
 };
 
+router.on('/admin/*', () => {}, {
+  before(done) {
+    if (JSON.parse(localStorage.getItem('user'))) {
+      const { id } = JSON.parse(localStorage.getItem('user'));
+      if (id === 2) {
+        done();
+      } else {
+        document.location.href = '/';
+      }
+    } else {
+      document.location.href = '/';
+    }
+  },
+});
+
 router.on({
   '/': () => print(HomePage),
   '/login': () => {
@@ -36,8 +51,9 @@ router.on({
 
     document.title = 'Products';
   },
-  '/product': () => {
-    print(ProductSinglePage);
+  '/product/:id': ({ data }) => {
+    const { id } = data;
+    print(ProductSinglePage, id);
   },
   '/admin/dashboard': () => {
     print(Dashboard);
