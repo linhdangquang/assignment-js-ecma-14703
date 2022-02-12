@@ -1,10 +1,10 @@
 {
   "products": [
     {
-      "createdAt": "2022/02/11 12:51:18",
+      "createdAt": "2022/02/12 14:09:38",
       "name": "Intelligent Wooden Salad",
       "img": "http://placeimg.com/640/480/fashion",
-      "price": "650",
+      "price": "65",
       "desc": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
       "id": "9"
     },
@@ -41,6 +41,12 @@
       "id": "gfnwZlV"
     }
   ],
+  "categories": [
+    {
+      "name": "Áo thun",
+      "id": "1"
+    }
+  ],
   "users": [
     {
       "email": "linh@gmail.com",
@@ -51,6 +57,11 @@
       "email": "test@gmail.com",
       "password": "$2a$10$Hlp9MLn/1T569IBLjrSrSOk7khvb9cChU.ACQMgLtYctaSk6v3q2y",
       "id": 2
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$63CfuW/7UKgIGMiRa3uNKeFyRRTbsXTKHFPsz6pLtL2Xdv.pYFEsm",
+      "id": 3
     }
   ]
 }

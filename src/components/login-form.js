@@ -120,7 +120,6 @@ const LoginForm = {
           email: document.querySelector('#email').value,
           password: document.querySelector('#password').value,
         });
-        console.log(result);
         Toast.fire({
           icon: 'success',
           title: 'Signed in successfully',
@@ -130,6 +129,7 @@ const LoginForm = {
           document.location.href = '/#/';
         }
       } catch (error) {
+        document.querySelector('#login-form').reset();
         Toast.fire({
           icon: 'error',
           title: error.response.data,
