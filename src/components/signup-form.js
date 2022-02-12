@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { signUp } from '../api/users';
 import Toast from '../pages/admin/components/toastAlert';
 
@@ -119,14 +120,31 @@ const SignupForm = {
     signUpForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       try {
-        const result = await signUp({
+        await signUp({
           email: document.querySelector('#email').value,
           password: document.querySelector('#password').value,
         });
-        console.log(result);
-        Toast.fire({
-          icon: 'success',
-          title: 'Signup completed',
+        let timerInterval;
+        Swal.fire({
+          title: 'Signup Completed!',
+          html: 'I will redirect to Login page after <b></b> milliseconds.',
+          timer: 1500,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const b = Swal.getHtmlContainer().querySelector('b');
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft();
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result2) => {
+          /* Read more about handling dismissals below */
+          if (result2.dismiss === Swal.DismissReason.timer) {
+            document.location.href = '/#/login';
+          }
         });
       } catch (error) {
         document.querySelector('.signup-form').reset();
