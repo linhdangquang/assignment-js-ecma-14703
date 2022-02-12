@@ -1,5 +1,6 @@
 import { NotExist, Exist } from '../utils/loguser';
 import reRender from '../utils/rerender';
+import Toast from '../pages/admin/components/toastAlert';
 
 const Nav = {
   render() {
@@ -22,11 +23,17 @@ const Nav = {
     if (user) {
       const userEmail = document.querySelector('#user-email');
       userEmail.innerHTML = user.email;
+      document.querySelector('#user-first-letter').innerHTML = user.email.slice(0, 1);
+      document.querySelector('#user-name').innerHTML = user.email.slice(0, user.email.search('@'));
     }
     if (document.querySelector('#logout')) {
       document.querySelector('#logout').addEventListener('click', () => {
         localStorage.removeItem('user');
         reRender(Nav, 'nav');
+        Toast.fire({
+          icon: 'info',
+          title: 'You have logout ',
+        });
       });
     }
   },

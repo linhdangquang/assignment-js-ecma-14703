@@ -2,6 +2,7 @@ import Footer from '../components/footer';
 import Header from '../components/header';
 import { getProductById } from '../api/products';
 import USDFormat from '../utils/currencyFormat';
+import Breadcrumbs from '../components/breadcrumbs';
 
 const ProductSinglePage = {
   async render(id) {
@@ -11,6 +12,7 @@ const ProductSinglePage = {
     <div class="container mx-auto p-5 font-montserrat">
       ${Header.render()}
       <main>
+        ${Breadcrumbs.render(data.name)}
         <div class="py-4 grid grid-cols-2 gap-4 items-start">
           <div>
             <img src="${data.img}" alt="" class="">

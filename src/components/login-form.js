@@ -126,7 +126,9 @@ const LoginForm = {
         });
         localStorage.setItem('user', JSON.stringify(result.data.user));
         if (result.data.user.id === 2) {
-          document.location.href = '/#/';
+          document.location.href = '/#/admin/dashboard';
+        } else {
+          document.location.href = '/';
         }
       } catch (error) {
         document.querySelector('#login-form').reset();
