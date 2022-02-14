@@ -1,0 +1,37 @@
+{
+  "routes": [
+      {
+          "src": "/*",
+          "dest": "/"
+      },
+      {
+          "src": "/src",
+          "dest": "/"
+      },
+      {
+          "src": "/news",
+          "dest": "/"
+      },
+      
+      {
+          "src": "/news/(.*)",
+          "dest": "/"
+      },
+      {
+          "src": "/admin/dashboard",
+          "dest": "/"
+      },
+      {
+          "src": "/admin/news",
+          "dest": "/"
+      },
+      {
+          "src": "/admin/news/(.*)/edit",
+          "dest": "/"
+      },
+      {
+          "src": "/admin/news/add",
+          "dest": "/"
+      }
+  ]
+}
