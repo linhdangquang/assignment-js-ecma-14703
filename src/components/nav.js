@@ -10,8 +10,15 @@ const Nav = {
             <a href="/products" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Shop</a>
             <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Blog</a>
             <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">News</a>
+            <div class="">
+            <form action="" id="search-form" class="relative pt-4">
+            <p id="search-label" class="search-label px-2 py-1 mt-2  mr-3 rounded-full hover:bg-gray-400 cursor-pointer"><i id="search-label" class="ri-search-line text-xl align-bottom"></i></p>
+                <input type="text" name="" id="search-input" class="search-input absolute drop-shadow-xl border-gray-200 rounded-sm right-3/4 hidden translate-x-full z-50 transition-all text-black" placeholder="Search" autocomplete="off">
+                <button type="submit"></button>
+              </form>
+            </div>
             <a href=""
-            class="bg-purple-600 text-gray-50 hover:bg-purple-700 py-2 mr-2 px-5 rounded-full transition-colors"><i
+            class="bg-purple-600 text-gray-50 hover:bg-purple-700 py-2 mr-2 px-4 rounded-full transition-colors"><i
                 class="ri-shopping-bag-line align-bottom"></i>(0)</a>
             ${localStorage.getItem('user') ? Exist : NotExist}
             
@@ -39,6 +46,17 @@ const Nav = {
         });
       });
     }
+    const searchLabel = document.querySelector('.search-label');
+    const searchInput = document.querySelector('.search-input');
+    const searchForm = document.querySelector('#search-form');
+    searchLabel.addEventListener('click', () => {
+      searchInput.classList.toggle('active-block');
+    });
+    document.addEventListener('click', (e) => {
+      if (e.target.id !== 'search-input' && e.target.id !== 'search-label') {
+        searchInput.classList.remove('active-block');
+      }
+    });
   },
 };
 

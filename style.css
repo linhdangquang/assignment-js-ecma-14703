@@ -8,3 +8,19 @@
   .table :where(th,td) {
     white-space: normal;
   }
+  @keyframes transformIn {
+    from {
+      transform: translate(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translate(0);
+      opacity: 1;
+    }
+  }
+  .search-input.active-block {
+    display: block;
+    transform: translateX(0);
+    animation: normal transformIn 0.4s;
+  }
+
