@@ -6,9 +6,11 @@ import NavAdmin from '../components/navD';
 import { addProduct } from '../../../api/products';
 import currentDateTime from '../../../utils/currentDateTime';
 import LoadingRequest from '../components/loadingRequest';
+import { getCategories } from '../../../api/categories';
 
 const AddProductPage = {
-  render() {
+  async render() {
+    const categories = await getCategories();
     return /* html */`
       <div class="container-fluid admin-container flex flex-row bg-gray-100 font-fira">
         ${NavAdmin.render()}
@@ -24,6 +26,13 @@ const AddProductPage = {
                 <div class="form-control p-4">
                   <label class="block mb-2 text-md font-medium text-gray-900">Price</label> 
                   <input type="number" id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full">
+                </div> 
+                <div class="form-control p-4">
+                  <label class="block mb-2 text-md font-medium text-gray-900">Category</label> 
+                  <select name="category" id="category" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full">
+                    ${categories.data.map((category) => /* html */`
+                    <option value="${category.id}">${category.name}</option>`)}
+                  </select>
                 </div> 
                 <div class="form-control p-4">
                   <label class=" block mb-2 text-md font-medium text-gray-900">Image</label> 
@@ -72,6 +81,7 @@ const AddProductPage = {
       addProduct({
         name: document.querySelector('#name').value,
         price: document.querySelector('#price').value,
+        categoryId: document.querySelector('#category').value,
         desc: document.querySelector('#desc').value,
         createdAt: currentDateTime,
         img: data.url,

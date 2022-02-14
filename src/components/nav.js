@@ -22,6 +22,9 @@ const Nav = {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       const userEmail = document.querySelector('#user-email');
+      if (user.id === 2) {
+        document.querySelector('#dashboard-link').innerHTML = '<a href="/#/admin/dashboard">Dashboard</a>';
+      }
       userEmail.innerHTML = user.email;
       document.querySelector('#user-first-letter').innerHTML = user.email.slice(0, 1);
       document.querySelector('#user-name').innerHTML = user.email.slice(0, user.email.search('@'));

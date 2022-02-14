@@ -1,8 +1,10 @@
 import { getAllProducts } from '../../../../api/products';
 import USDFormat from '../../../../utils/currencyFormat';
+import { getCategories } from '../../../../api/categories';
 
 const ProductsTable = {
   async render() {
+    const categories = await getCategories();
     const products = await getAllProducts();
     return /* html */`
         ${products.data.map((product, idx) => /* html */ `
@@ -14,6 +16,11 @@ const ProductsTable = {
           </th>
           <td class="font-semibold text-gray-500">${idx + 1}</td>
           <td class="name-product">${product.name}</td>
+          <td class="category-product">${categories.data.map((category) => {
+    if (category.id === product.categoryId) {
+      return category.name;
+    } return '';
+  }).join('')}</td>
           <td>${USDFormat(product.price)}</td>
           <td><img  src="${product.img}" class="w-24"></td>
           <td>${product.createdAt}</td>

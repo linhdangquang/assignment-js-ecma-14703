@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import { getProductById, updateProduct } from '../../../api/products';
+import { getCategories } from '../../../api/categories';
 import FooterAdmin from '../components/footerD';
 import HeaderAdmin from '../components/headerD';
 import NavAdmin from '../components/navD';
@@ -10,6 +11,8 @@ import LoadingRequest from '../components/loadingRequest';
 const EditProductPage = {
   async render(id) {
     const { data } = await getProductById(id);
+    const categories = await getCategories();
+    console.log(categories.data);
     return /* html */`
       <div class="container-fluid admin-container flex flex-row bg-gray-100 font-fira">
         ${NavAdmin.render()}
@@ -25,6 +28,13 @@ const EditProductPage = {
                 <div class="form-control p-4">
                   <label class="block mb-2 text-md font-medium text-gray-900">Price</label> 
                   <input type="number" id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full" value="${data.price}">
+                </div> 
+                <div class="form-control p-4">
+                  <label class="block mb-2 text-md font-medium text-gray-900">Category</label> 
+                  <select name="category" id="category" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full">
+                    ${categories.data.map((category) => /* html */`
+                    <option value="${category.id}" ${data.categoryId === category.id ? 'selected' : ''}>${category.name}</option>`)}
+                  </select>
                 </div> 
                 <div class="form-control p-4">
                   <label class="block mb-2 text-md font-medium text-gray-900">Image</label> 
@@ -67,6 +77,7 @@ const EditProductPage = {
             price: document.querySelector('#price').value,
             desc: document.querySelector('#desc').value,
             createdAt: currentDateTime,
+            categoryId: document.querySelector('#category').value,
           }).then(() => {
             LoadingRequest.stopLoading();
             Toast.fire({

@@ -1,7 +1,7 @@
 const navDData = [
   { name: 'Dashboard', url: '/admin/dashboard', icon: 'ri-dashboard-line' },
   { name: 'Products', url: '/#/admin/products/products', icon: 'ri-handbag-line' },
-  { name: 'Categories', url: '/admin/categories', icon: 'ri-list-check-2' },
+  { name: 'Categories', url: '/admin/categories/categories', icon: 'ri-list-check-2' },
   { name: 'Settings', url: '/admin/settings', icon: 'ri-settings-2-line' },
   { name: 'Logout', url: '/logout', icon: 'ri-logout-circle-line' },
 ];

@@ -10,8 +10,7 @@ const Exist = /* html */`
         <p id="user-name" class="first-letter:uppercase">Dang Quang Linh</p>
         <small id="user-email">linhdq@gmail.com</small>
     </li>
-    <li>
-        <a href="/#/admin/dashboard">Dashboard</a>
+    <li id="dashboard-link">
     </li> 
     <li>
         <a>Settings</a>

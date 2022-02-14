@@ -12,6 +12,8 @@ import AddProductPage from './pages/admin/products/add';
 import EditProductPage from './pages/admin/products/edit';
 import ProductsPage from './pages/products';
 import ProductSinglePage from './pages/single-product';
+import CategoriesPage from './pages/admin/categories/categories';
+import AddCategoryPage from './pages/admin/categories/add';
 
 const container = document.querySelector('#container');
 const router = new Navigo('/', { linksSelector: 'a', hash: true });
@@ -75,6 +77,14 @@ router.on({
     const { id } = data;
     print(EditProductPage, id);
     document.title = 'Edit Product';
+  },
+  '/admin/categories/categories': () => {
+    print(CategoriesPage);
+    document.title = 'Categories';
+  },
+  '/admin/categories/add': () => {
+    print(AddCategoryPage);
+    document.title = 'Add Category';
   },
 });
 router.resolve();

@@ -1,9 +1,11 @@
 import { getAllProducts } from '../api/products';
+import { getCategories } from '../api/categories';
 import USDFormat from '../utils/currencyFormat';
 
 const ListItem = {
   async render() {
     const { data } = await getAllProducts();
+    const categories = await getCategories();
     return /* html */`
       <!-- CONTENT -->
       <div id="content" class="py-4 bg-gray-50">
@@ -21,7 +23,11 @@ const ListItem = {
             </a>
           </div>
           <div class="p-4 px-6 pb-2">
-            <h3 class="text-center"><a href="" class="text-lg font-semibold tracking-widest uppercase">LEVIS</a></h3>
+            <h3 class="text-center"><a href="" class="text-lg font-semibold tracking-widest uppercase">${categories.data.map((category) => {
+    if (category.id === product.categoryId) {
+      return category.name;
+    } return '';
+  }).join('')}</a></h3>
             <h4 class="text-center leading-4 text-gray-500 py-2 hover:text-gray-900 font-medium">
               <a href ="/product/${product.id}" class="text-sm">${product.name}</a>
             </h4>
