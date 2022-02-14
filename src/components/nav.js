@@ -48,7 +48,7 @@ const Nav = {
     }
     const searchLabel = document.querySelector('.search-label');
     const searchInput = document.querySelector('.search-input');
-    const searchForm = document.querySelector('#search-form');
+    // const searchForm = document.querySelector('#search-form');
     searchLabel.addEventListener('click', () => {
       searchInput.classList.toggle('active-block');
     });

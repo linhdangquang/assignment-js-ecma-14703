@@ -1,20 +1,28 @@
 {
   "routes": [
       {
-          "src": "/*",
-          "dest": "/*"
+          "src": "/",
+          "dest": "/"
       },
       {
           "src": "/src",
           "dest": "/"
       },
       {
-          "src": "/news",
+          "src": "/login",
+          "dest": "/"
+      },
+      {
+          "src": "/signup",
+          "dest": "/"
+      },
+      {
+          "src": "/products",
           "dest": "/"
       },
       
       {
-          "src": "/news/(.*)",
+          "src": "/product/(.*)",
           "dest": "/"
       },
       {
@@ -22,15 +30,23 @@
           "dest": "/"
       },
       {
-          "src": "/admin/news",
+          "src": "/admin/products/products",
           "dest": "/"
       },
       {
-          "src": "/admin/news/(.*)/edit",
+          "src": "/admin/products/add",
           "dest": "/"
       },
       {
-          "src": "/admin/news/add",
+          "src": "/admin/products/edit/(.*)",
+          "dest": "/"
+      },
+      {
+          "src": "/admin/categories/add",
+          "dest": "/"
+      },
+      {
+          "src": "/admin/categories/categories",
           "dest": "/"
       }
   ]
