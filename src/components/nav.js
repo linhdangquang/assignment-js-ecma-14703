@@ -17,7 +17,7 @@ const Nav = {
                 <button type="submit"></button>
               </form>
             </div>
-            <a href=""
+            <a href="/cart"
             class="bg-purple-600 text-gray-50 hover:bg-purple-700 py-2 mr-2 px-4 rounded-full transition-colors"><i
                 class="ri-shopping-bag-line align-bottom"></i>(0)</a>
             ${localStorage.getItem('user') ? Exist : NotExist}

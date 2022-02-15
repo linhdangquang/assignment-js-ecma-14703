@@ -3,6 +3,7 @@ import Header from '../components/header';
 import { getProductById } from '../api/products';
 import USDFormat from '../utils/currencyFormat';
 import Breadcrumbs from '../components/breadcrumbs';
+import { addToCart } from '../utils/cart';
 
 const ProductSinglePage = {
   async render(id) {
@@ -52,11 +53,11 @@ const ProductSinglePage = {
                     </div>
                     <div class="form-control w-1/6">
                       <label for="quantity" class="font-semibold text-sm pb-2">QTY</label>
-                      <input type="number" name="quantity" id="quantity" value="1" min="1" class="border-gray-300 focus:border-gray-400 ring-0 outline-none">
+                      <input type="number" name="quantity" id="quantity" placeholder="1" min="1" class="border-gray-300 focus:border-gray-400 ring-0 outline-none">
                     </div>
                   </div>
                   <div class="grid grid-cols-2 gap-4 py-4">
-                    <button class="btn rounded-none bg-teal-500 border-0 hover:bg-teal-600">ADD TO CART</button>
+                    <button id="btn-add" class="btn rounded-none bg-teal-500 border-0 hover:bg-teal-600">ADD TO CART</button>
                     <button class="btn btn-outline rounded-none border-gray-400">BUY NOW</button>
                   </div>
                 </form>
@@ -67,6 +68,15 @@ const ProductSinglePage = {
       ${Footer.render()}
   </div>
     `;
+  },
+  afterRender(id) {
+    Header.afterRender();
+    document.querySelector('#btn-add').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const quantity = document.querySelector('#quantity').value;
+      const { data } = await getProductById(id);
+      addToCart({ ...data, quantity: parseInt(quantity, 10) || 1 });
+    });
   },
 
 };

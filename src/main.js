@@ -12,6 +12,7 @@ import AddProductPage from './pages/admin/products/add';
 import EditProductPage from './pages/admin/products/edit';
 import ProductsPage from './pages/products';
 import ProductSinglePage from './pages/single-product';
+import CartPage from './pages/cart';
 import CategoriesPage from './pages/admin/categories/categories';
 import AddCategoryPage from './pages/admin/categories/add';
 
@@ -56,6 +57,10 @@ router.on({
   '/product/:id': ({ data }) => {
     const { id } = data;
     print(ProductSinglePage, id);
+  },
+  '/cart': () => {
+    print(CartPage);
+    document.title = 'Cart';
   },
   '/admin/dashboard': () => {
     print(Dashboard);

@@ -14,5 +14,8 @@ const ProductsPage = {
       </div>
     `;
   },
+  afterRender() {
+    Header.afterRender();
+  },
 };
 export default ProductsPage;
