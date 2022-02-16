@@ -1,5 +1,9 @@
-import { getAllProducts } from '../api/products';
+import Swal from 'sweetalert2';
+import { getAllProducts, getProductById } from '../api/products';
 import { getCategories } from '../api/categories';
+import Header from './header';
+import reRender from '../utils/rerender';
+import { addToCart } from '../utils/cart';
 import USDFormat from '../utils/currencyFormat';
 
 const ListItem = {
@@ -52,11 +56,11 @@ const ListItem = {
             
             </div>
             <div class="w-full p-0 m-0 grid grid-cols-2 gap-2">
-              <a href="/product/${product.id}"
-                class="bg-teal-500 hover:bg-teal-600 py-3.5 px-2 text-gray-50 uppercase font-medium text-xs flex flex-row justify-center transition-colors">
+              <button  id="btn-add" data-id="${product.id}"
+                class="btn-add bg-teal-500 hover:bg-teal-600 py-3.5 px-2 text-gray-50 uppercase font-medium text-xs flex flex-row justify-center transition-colors cursor-pointer">
                 <i class="ri-shopping-cart-2-line align-text-bottom"></i>Add
                 to cart
-              </a>
+              </button>
               <a href="/product/${product.id}"
                 class="bg-cyan-500 hover:bg-cyan-600 py-3.5 px-2 text-gray-50 uppercase font-medium text-xs flex flex-row justify-center transition-colors">
                 View details
@@ -68,6 +72,24 @@ const ListItem = {
     </div>
       
         `;
+  },
+  afterRender() {
+    const btns = document.querySelectorAll('.btn-add');
+    btns.forEach((btn) => {
+      const { id } = btn.dataset;
+      btn.addEventListener('click', async () => {
+        const { data } = await getProductById(id);
+        addToCart({ ...data, quantity: 1 });
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Item has add to cart successfully',
+          showConfirmButton: false,
+          timer: 500,
+        });
+        reRender(Header, '.cart');
+      });
+    });
   },
 };
 

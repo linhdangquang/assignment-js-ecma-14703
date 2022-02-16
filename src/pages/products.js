@@ -16,6 +16,7 @@ const ProductsPage = {
   },
   afterRender() {
     Header.afterRender();
+    ListItem.afterRender();
   },
 };
 export default ProductsPage;

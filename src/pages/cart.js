@@ -17,7 +17,7 @@ const CartPage = {
         <main class="py-4 main">
           <div class="w-full overflow-x-auto">
           <div class="my-2">
-            <h3 class="text-xl font-bold tracking-wider">Shopping Cart 3 item</h3>
+            <h3 class="text-xl font-bold tracking-wider">Your Cart</h3>
           </div>
           <table class="w-full shadow-inner">
             <thead class="">
@@ -45,7 +45,7 @@ const CartPage = {
                       <button class="btn-item btn-decrease" data-id="${item.id}">
                         <i class="ri-indeterminate-circle-line text-red-600 text-2xl align-middle active:text-red-700 "></i>
                       </button>
-                      <input type="text" name="qty" value="${item.quantity}" class="w-12 text-center bg-gray-100 outline-none" />
+                      <input type="text" name="qty" value="${item.quantity}" class="w-12 text-center outline-none border-0" />
                       <button class="btn-item btn-increase" data-id="${item.id}">
                         <i class="ri-add-circle-line  text-green-600 text-2xl align-middle active:text-green-700  "></i>
                       </button>
@@ -63,8 +63,8 @@ const CartPage = {
           </table>
           
           <div class="mt-4">
-            <div class="py-4 rounded-md shadow">
-              <h3 class="text-xl font-bold text-blue-600">Order Summary</h3>
+            <div class="pt-4 rounded-md shadow bg-gray-50">
+              <h3 class="text-xl font-bold text-cyan-600 px-4">Order Summary</h3>
               <div class="flex justify-between px-4">
                 <span class="font-bold">Subtotal</span>
                 <span class="font-bold">$35.25</span>
@@ -83,8 +83,8 @@ const CartPage = {
               </div>
             </div>
           </div>
-          <div class="mt-4">
-            <button class="w-full py-2 text-center text-white bg-blue-500 rounded-md shadow hover:bg-blue-600">
+          <div class="my-4 flex justify-end">
+            <button class="w-1/4 py-2 text-center text-white bg-cyan-500 rounded-md shadow transition-colors hover:bg-cyan-600">
               Proceed to Checkout
             </button>
           </div>

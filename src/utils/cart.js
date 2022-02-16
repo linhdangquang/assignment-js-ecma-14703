@@ -37,7 +37,7 @@ export const decreaseQuantity = async (id, next) => {
         cart = cart.filter((item) => item.id !== id);
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Your item has been deleted.',
           'success',
         );
       }

@@ -1,9 +1,11 @@
+import Swal from 'sweetalert2';
 import Footer from '../components/footer';
 import Header from '../components/header';
 import { getProductById } from '../api/products';
 import USDFormat from '../utils/currencyFormat';
 import Breadcrumbs from '../components/breadcrumbs';
 import { addToCart } from '../utils/cart';
+import reRender from '../utils/rerender';
 
 const ProductSinglePage = {
   async render(id) {
@@ -76,6 +78,14 @@ const ProductSinglePage = {
       const quantity = document.querySelector('#quantity').value;
       const { data } = await getProductById(id);
       addToCart({ ...data, quantity: parseInt(quantity, 10) || 1 });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Item has add to cart successfully',
+        showConfirmButton: false,
+        timer: 500,
+      });
+      reRender(Header, '.cart');
     });
   },
 

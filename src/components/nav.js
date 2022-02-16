@@ -18,7 +18,7 @@ const Nav = {
               </form>
             </div>
             <a href="/cart"
-            class="bg-purple-600 text-gray-50 hover:bg-purple-700 py-2 mr-2 px-4 rounded-full transition-colors"><i
+            class="cart bg-purple-600 text-gray-50 hover:bg-purple-700 py-2 mr-2 px-4 rounded-full transition-colors"><i
                 class="ri-shopping-bag-line align-bottom"></i>(0)</a>
             ${localStorage.getItem('user') ? Exist : NotExist}
             
@@ -45,6 +45,12 @@ const Nav = {
           title: 'You have logout ',
         });
       });
+    }
+    const cart = JSON.parse(localStorage.getItem('cart'));
+    console.log(cart);
+    if (cart) {
+      document.querySelector('.cart').innerHTML = `<i
+      class="ri-shopping-bag-line align-bottom"></i>(${cart.length})`;
     }
     const searchLabel = document.querySelector('.search-label');
     const searchInput = document.querySelector('.search-input');
