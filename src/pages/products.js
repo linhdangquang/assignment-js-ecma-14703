@@ -6,7 +6,7 @@ import ListItem from '../components/list-items';
 const ProductsPage = {
   async render() {
     return /* html */`
-      <div class="container mx-auto p-5 font-montserrat">
+    <div class="container mx-auto p-5 font-montserrat">
         ${Header.render()}
         ${BannerProducts.render()}
         ${await ListItem.render()}

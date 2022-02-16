@@ -20,8 +20,8 @@ const CartPage = {
             <h3 class="text-xl font-bold tracking-wider">Your Cart</h3>
           </div>
           <table class="table text-center w-full shadow-inner">
-            <thead class="">
-              <tr class=>
+            <thead class="text-gray-600">
+              <tr>
                 <th class="px-6 py-3 font-bold whitespace-nowrap">Image</th>
                 <th class="px-6 py-3 font-bold whitespace-nowrap">Product</th>
                 <th class="px-6 py-3 font-bold whitespace-nowrap">Qty</th>
