@@ -5,7 +5,7 @@ if (localStorage.getItem('cart')) {
   cart = JSON.parse(localStorage.getItem('cart'));
 }
 
-export const addToCart = (newProduct) => {
+export const addToCart = (newProduct, next) => {
   const existingProduct = cart.find((product) => product.id === newProduct.id);
   if (!existingProduct) {
     cart.push(newProduct);
@@ -13,6 +13,7 @@ export const addToCart = (newProduct) => {
     existingProduct.quantity += parseInt(newProduct.quantity, 10);
   }
   localStorage.setItem('cart', JSON.stringify(cart));
+  next();
 };
 
 export const increaseQuantity = (id) => {
@@ -67,5 +68,27 @@ export const removeItemCart = async (id, next) => {
     }
   });
   localStorage.setItem('cart', JSON.stringify(cart));
+  next();
+};
+
+export const emptyCart = async (next) => {
+  await Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success',
+      );
+      localStorage.removeItem('cart');
+    }
+  });
   next();
 };

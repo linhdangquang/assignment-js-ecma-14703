@@ -18,6 +18,7 @@ const HomePage = {
   },
   afterRender() {
     Header.afterRender();
+    ListItem.afterRender();
   },
 
 };

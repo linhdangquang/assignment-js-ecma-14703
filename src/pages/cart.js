@@ -19,9 +19,9 @@ const CartPage = {
           <div class="my-2">
             <h3 class="text-xl font-bold tracking-wider">Your Cart</h3>
           </div>
-          <table class="w-full shadow-inner">
+          <table class="table text-center w-full shadow-inner">
             <thead class="">
-              <tr class="bg-gray-100">
+              <tr class=>
                 <th class="px-6 py-3 font-bold whitespace-nowrap">Image</th>
                 <th class="px-6 py-3 font-bold whitespace-nowrap">Product</th>
                 <th class="px-6 py-3 font-bold whitespace-nowrap">Qty</th>
@@ -58,11 +58,16 @@ const CartPage = {
                     </button>
                   </td>
                 </tr>
-              `).join('')}
+                `).join('')}
             </tbody>
+
+            <div class="flex justify-end pb-2">
+                <button id="btn-empty-cart" class="p-4 py-3 rounded-lg bg-rose-500 text-white hover:bg-rose-600 active:scale-95">Empty Cart</button>
+              </div>
           </table>
           
           <div class="mt-4">
+            
             <div class="pt-4 rounded-md shadow bg-gray-50">
               <h3 class="text-xl font-bold text-cyan-600 px-4">Order Summary</h3>
               <div class="flex justify-between px-4">
@@ -130,6 +135,18 @@ const CartPage = {
             reRender(CartPage, '#container');
           });
         }
+      });
+    });
+    document.querySelector('#btn-empty-cart').addEventListener('click', () => {
+      cartFunc.emptyCart(() => {
+        Swal.fire({
+          position: 'center',
+          icon: 'info',
+          title: 'Removed all item in cart successfully',
+          showConfirmButton: false,
+          timer: 1200,
+        });
+        reRender(CartPage, '#container');
       });
     });
   },

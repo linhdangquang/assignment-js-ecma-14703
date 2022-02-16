@@ -1,10 +1,10 @@
-import Swal from 'sweetalert2';
 import { getAllProducts, getProductById } from '../api/products';
 import { getCategories } from '../api/categories';
 import Header from './header';
 import reRender from '../utils/rerender';
 import { addToCart } from '../utils/cart';
 import USDFormat from '../utils/currencyFormat';
+import Toast from '../pages/admin/components/toastAlert';
 
 const ListItem = {
   async render() {
@@ -79,15 +79,10 @@ const ListItem = {
       const { id } = btn.dataset;
       btn.addEventListener('click', async () => {
         const { data } = await getProductById(id);
-        addToCart({ ...data, quantity: 1 });
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Item has add to cart successfully',
-          showConfirmButton: false,
-          timer: 500,
+        addToCart({ ...data, quantity: 1 }, () => {
+          Toast.fire({ icon: 'success', title: 'Product added to cart', timer: 1000 });
+          reRender(Header, '.cart');
         });
-        reRender(Header, '.cart');
       });
     });
   },

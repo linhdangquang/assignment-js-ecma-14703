@@ -47,10 +47,10 @@ const Nav = {
       });
     }
     const cart = JSON.parse(localStorage.getItem('cart'));
-    console.log(cart);
     if (cart) {
+      const sumQuantity = cart.map((item) => item.quantity).reduce((prev, cur) => prev + cur, 0);
       document.querySelector('.cart').innerHTML = `<i
-      class="ri-shopping-bag-line align-bottom"></i>(${cart.length})`;
+      class="ri-shopping-bag-line align-bottom"></i>(${sumQuantity})`;
     }
     const searchLabel = document.querySelector('.search-label');
     const searchInput = document.querySelector('.search-input');

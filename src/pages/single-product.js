@@ -77,15 +77,16 @@ const ProductSinglePage = {
       e.preventDefault();
       const quantity = document.querySelector('#quantity').value;
       const { data } = await getProductById(id);
-      addToCart({ ...data, quantity: parseInt(quantity, 10) || 1 });
-      Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Item has add to cart successfully',
-        showConfirmButton: false,
-        timer: 500,
+      addToCart({ ...data, quantity: parseInt(quantity, 10) || 1 }, () => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Item has add to cart successfully',
+          showConfirmButton: false,
+          timer: 500,
+        });
+        reRender(Header, '.cart');
       });
-      reRender(Header, '.cart');
     });
   },
 
