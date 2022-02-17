@@ -16,9 +16,7 @@ export const addToCart = (newProduct, next) => {
     cart.push(newProduct);
   } else {
     existingProduct.quantity += parseInt(newProduct.quantity, 10);
-    if (existingProduct.inStock === 0) {
-      return alert('Bạn đã thêm tối đa số lượng còn lại của sản phẩm');
-    } if (existingProduct.inStock < newProduct.quantity) {
+    if (existingProduct.inStock < newProduct.quantity) {
       return Swal.fire({
         position: 'center',
         icon: 'error',
@@ -26,6 +24,9 @@ export const addToCart = (newProduct, next) => {
         showConfirmButton: false,
         timer: 800,
       });
+    }
+    if (existingProduct.inStock === 0) {
+      return alert('Bạn đã thêm tối đa số lượng còn lại của sản phẩm');
     }
     existingProduct.inStock -= parseInt(newProduct.quantity, 10);
   }
