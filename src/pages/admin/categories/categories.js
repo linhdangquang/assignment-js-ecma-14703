@@ -18,7 +18,9 @@ const CategoriesPage = {
                           Categories List
                       </h3>
                     </div>
-                    <a href="/admin/categories/add" class=" text-white btn btn-accent"><span class="pr-1"><i class="ri-add-circle-line align-middle"></i></span> Add</a>
+                    <a href="/admin/categories/add" class=" text-white btn btn-accent">
+                    <span class="pr-1"><i class="ri-add-circle-line align-middle"></i></span> Add
+                    </a>
                   </div>
                 </div>
                 <table class="w-full table-auto table  shadow-lg drop-shadow-sm">

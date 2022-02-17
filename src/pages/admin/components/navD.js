@@ -29,5 +29,8 @@ const NavAdmin = {
 </nav>
     `;
   },
+  afterRender() {
+
+  },
 };
 export default NavAdmin;

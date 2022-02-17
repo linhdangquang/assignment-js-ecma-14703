@@ -1,15 +1,15 @@
+/* eslint-disable max-len */
 import { getCategories, getProductsByCategory } from '../../../../api/categories';
+import * as sort from '../../../../utils/sort';
 
 const CategoriesList = {
   async render() {
-    const quantity = [];
     const categories = await getCategories();
-    const quantityProducts = categories.data.map((category) => getProductsByCategory(category.id));
-    await Promise.all(quantityProducts.map((result) => result.then((item) => {
-      quantity.push(item.data.products.length);
-    })));
+    const productsByCategory = categories.data.map((category) => getProductsByCategory(category.id));
+    const data = await Promise.all(productsByCategory.map((result) => result.then((item) => item.data)));
+    sort.SortCategoriesDesc(data);
     return /* html */ `
-      ${categories.data.map((category, idx) => /* html */ `
+      ${data.map((category, idx) => /* html */ `
       <tr class="hover p-2">
         <th>
           <label>
@@ -18,7 +18,7 @@ const CategoriesList = {
         </th>
         <td class="font-semibold text-gray-500">${idx + 1}</td>
         <td class="name-category">${category.name}</td>
-        <td>${quantity[idx]}</td>
+        <td>${category.products.length}</td>
         <td>
           <div class="dropdown dropdown-end">
             <div tabindex="0" class="m-1 cursor-pointer hover:text-pink-600 text-xl"><i class="ri-more-2-fill"></i></div> 

@@ -39,6 +39,26 @@ router.on('/admin/*', () => {}, {
   },
 });
 
+router.on('/signup', () => {}, {
+  before(done) {
+    if (localStorage.getItem('user')) {
+      document.location.href = '/';
+    } else {
+      done();
+    }
+  },
+});
+
+router.on('/login', () => {}, {
+  before(done) {
+    if (localStorage.getItem('user')) {
+      document.location.href = '/';
+    } else {
+      done();
+    }
+  },
+});
+
 router.on({
   '/': () => print(HomePage),
   '/login': () => {
