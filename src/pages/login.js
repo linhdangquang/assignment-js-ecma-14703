@@ -4,10 +4,10 @@ import LoginForm from '../components/login-form';
 import Breadcrumbs from '../components/breadcrumbs';
 
 const LoginPage = {
-  render() {
+  async render() {
     return /* html */`
         <div class="container mx-auto p-5 font-montserrat">
-        ${Header.render()}
+        ${await Header.render()}
         ${Breadcrumbs.render('Login')}
         ${LoginForm.render()}
         ${Footer.render()}

@@ -128,7 +128,7 @@ const LoginForm = {
         if (result.data.user.id === 2) {
           document.location.href = '/#/admin/dashboard';
         } else {
-          document.location.href = '/';
+          document.location.href = '/#';
         }
       } catch (error) {
         document.querySelector('#login-form').reset();

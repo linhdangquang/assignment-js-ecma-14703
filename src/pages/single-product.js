@@ -13,7 +13,7 @@ const ProductSinglePage = {
     document.title = data.name;
     return /* html */`
     <div class="container mx-auto p-5 font-montserrat">
-      ${Header.render()}
+      ${await Header.render()}
       <main>
         ${Breadcrumbs.render(data.name)}
         <div class="py-4 grid grid-cols-2 gap-4 items-start">

@@ -1,13 +1,22 @@
 import { NotExist, Exist } from '../utils/loguser';
 import reRender from '../utils/rerender';
 import Toast from '../pages/admin/components/toastAlert';
+import { getCategories } from '../api/categories';
 
 const Nav = {
-  render() {
+  async render() {
+    const categories = await getCategories();
+    // console.log(categories);
     return /* html */`
         <nav class="mt-2 flex flex-row items-center">
             <a href="/" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Home</a>
             <a href="/products" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Shop</a>
+            <div class="dropdown dropdown-hover dropdown-end">
+                <a href="/products" tabindex="0" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Categories</a>
+                <ul tabindex="0" class="p-2 -mt-4 mr-4 bg-gray-50 shadow menu dropdown-content rounded-box w-52 border-gray-200">
+                  ${categories.data.map((category) => `<li><a class="active:bg-blue-400">${category.name}</a></li>`).join('')}
+                </ul>
+            </div>
             <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Blog</a>
             <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">News</a>
             <div class="">

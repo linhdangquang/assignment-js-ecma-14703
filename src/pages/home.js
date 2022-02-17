@@ -8,7 +8,7 @@ const HomePage = {
   async render() {
     return /* html */ `
         <div class="container mx-auto p-5 font-montserrat">
-            ${Header.render()}
+            ${await Header.render()}
             ${HeroSections.render()}
             ${await ListItem.render()}
             ${NewsLetter.render()}

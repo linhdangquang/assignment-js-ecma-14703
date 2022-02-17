@@ -12,7 +12,7 @@ const CartPage = {
       const cart = JSON.parse(localStorage.getItem('cart'));
       return /* html */`
       <div class="container mx-auto p-5 font-montserrat">
-        ${Header.render()}
+        ${await Header.render()}
         ${Breadcrumbs.render('Cart')}
         <main class="py-4 main">
           <div class="w-full overflow-x-auto">
@@ -51,7 +51,7 @@ const CartPage = {
                       </button>
                     </div>
                   </td>
-                  <td class="p-4 px-6 text-center whitespace-nowrap">${USDFormat(item.price)}</td>
+                  <td class="price p-4 px-6 text-center whitespace-nowrap">${USDFormat(item.price * item.quantity)}</td>
                   <td class="p-4 px-6 text-center whitespace-nowrap">
                     <button class="btn-item btn-remove" data-id="${item.id}">
                     <i class="ri-delete-bin-line text-red-400 text-2xl active:text-red-500"></i>
@@ -71,20 +71,20 @@ const CartPage = {
             <div class="pt-4 rounded-md shadow bg-gray-50">
               <h3 class="text-xl font-bold text-cyan-600 px-4">Order Summary</h3>
               <div class="flex justify-between px-4">
-                <span class="font-bold">Subtotal</span>
+                <span class="font-bold" id="subtotal">Subtotal</span>
                 <span class="font-bold">$35.25</span>
               </div>
               <div class="flex justify-between px-4">
                 <span class="font-bold">Discount</span>
-                <span class="font-bold text-red-600">- $5.00</span>
+                <span class="font-bold text-red-600">- $0.00</span>
               </div>
               <div class="flex justify-between px-4">
                 <span class="font-bold">Sales Tax</span>
-                <span class="font-bold">$2.25</span>
+                <span class="font-bold">$0.00</span>
               </div>
               <div class="flex items-center justify-between px-4 py-2 mt-3 border-t-2">
-                <span class="text-xl font-bold">Total</span>
-                <span class="text-2xl font-bold">$37.50</span>
+                <span class="text-xl font-bold" >Total</span>
+                <span class="text-2xl font-bold" id="total"></span>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ const CartPage = {
     }
     return /* html */ `
     <div class="container mx-auto p-5 font-montserrat">
-        ${Header.render()}
+        ${await Header.render()}
         ${Breadcrumbs.render('Cart')}
         <main class="flex items-center justify-center">
           <img src="https://rtworkspace.com/wp-content/plugins/rtworkspace-ecommerce-wp-plugin/assets/img/empty-cart.png" alt="">
@@ -112,6 +112,15 @@ const CartPage = {
   },
   afterRender() {
     Header.afterRender();
+    if (localStorage.getItem('cart') && JSON.parse(localStorage.getItem('cart')).length > 0) {
+      document.querySelector('#btn-empty-cart').addEventListener('click', () => {
+        cartFunc.emptyCart(() => {
+          reRender(CartPage, '#container');
+        });
+      });
+      const cartArr = JSON.parse(localStorage.getItem('cart'));
+      cartFunc.updateTotalCart(cartArr);
+    }
     const btns = document.querySelectorAll('.btn-item');
     btns.forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -122,6 +131,7 @@ const CartPage = {
           });
         } else if (btn.classList.contains('btn-increase')) {
           cartFunc.increaseQuantity(id);
+          document.querySelector('#total').innerText = USDFormat(JSON.parse(localStorage.getItem('cart')).reduce((sum, item) => sum + (parseInt(item.price, 10) || 0), 0));
           reRender(CartPage, '#container');
         } else {
           cartFunc.removeItemCart(id, () => {
@@ -135,18 +145,6 @@ const CartPage = {
             reRender(CartPage, '#container');
           });
         }
-      });
-    });
-    document.querySelector('#btn-empty-cart').addEventListener('click', () => {
-      cartFunc.emptyCart(() => {
-        Swal.fire({
-          position: 'center',
-          icon: 'info',
-          title: 'Removed all item in cart successfully',
-          showConfirmButton: false,
-          timer: 1200,
-        });
-        reRender(CartPage, '#container');
       });
     });
   },

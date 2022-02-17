@@ -7,7 +7,7 @@ const ProductsPage = {
   async render() {
     return /* html */`
     <div class="container mx-auto p-5 font-montserrat">
-        ${Header.render()}
+        ${await Header.render()}
         ${BannerProducts.render()}
         ${await ListItem.render()}
         ${Footer.render()}

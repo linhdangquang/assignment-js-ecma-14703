@@ -1,4 +1,6 @@
+/* eslint-disable max-len */
 import Swal from 'sweetalert2';
+import USDFormat from './currencyFormat';
 
 let cart = [];
 if (localStorage.getItem('cart')) {
@@ -82,13 +84,21 @@ export const emptyCart = async (next) => {
     confirmButtonText: 'Yes, delete it!',
   }).then((result) => {
     if (result.isConfirmed) {
-      Swal.fire(
-        'Deleted!',
-        'Your file has been deleted.',
-        'success',
-      );
+      Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Removed all item in cart successfully',
+        showConfirmButton: false,
+        timer: 1200,
+      });
       localStorage.removeItem('cart');
     }
   });
   next();
+};
+
+export const updateTotalCart = (cartArr) => {
+  const totalPrice = USDFormat(cartArr.reduce((sum, { price, quantity }) => sum + (parseInt(price, 10) * parseInt(quantity, 10) || 0), 0));
+  document.querySelector('#total').innerText = totalPrice;
+  console.log(totalPrice);
 };
