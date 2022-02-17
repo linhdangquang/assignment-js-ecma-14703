@@ -60,6 +60,9 @@ const CategoriesPage = {
       </div>
     `;
   },
+  afterRender() {
+    NavAdmin.afterRender();
+  },
 };
 
 export default CategoriesPage;

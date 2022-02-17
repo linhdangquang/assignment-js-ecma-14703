@@ -37,6 +37,7 @@ const AddCategoryPage = {
     `;
   },
   afterRender() {
+    NavAdmin.afterRender();
     const addCategoryForm = document.querySelector('#addForm');
     addCategoryForm.addEventListener('submit', (event) => {
       event.preventDefault();

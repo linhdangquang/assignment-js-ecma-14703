@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { getAllProducts, getProductById } from '../api/products';
 import { getCategories } from '../api/categories';
 import Header from './header';
@@ -14,7 +15,7 @@ const ListItem = {
       <!-- CONTENT -->
       <div id="content" class="py-4 bg-gray-50">
         <div class="flex flex-row justify-between my-5">
-          <h2 class="text-3xl">Men's Collection</h2>
+          <h2 class="text-3xl"> Collection</h2>
           <a href="#" class="text-xl">View all<i class="ri-arrow-right-s-fill align-middle text-2xl"></i></a>
         </div>
         <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
@@ -79,10 +80,20 @@ const ListItem = {
       const { id } = btn.dataset;
       btn.addEventListener('click', async () => {
         const { data } = await getProductById(id);
-        addToCart({ ...data, quantity: 1 }, () => {
-          Toast.fire({ icon: 'success', title: 'Product added to cart', timer: 1000 });
-          reRender(Header, '.cart');
-        });
+        if (parseInt(data.inStock, 10) === 0) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Sorry, item is out of stock',
+            showConfirmButton: false,
+            timer: 800,
+          });
+        } else {
+          addToCart({ ...data, quantity: 1 }, () => {
+            Toast.fire({ icon: 'success', title: 'Product added to cart', timer: 1000 });
+            reRender(Header, '.cart');
+          });
+        }
       });
     });
   },

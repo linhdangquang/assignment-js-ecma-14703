@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import Swal from 'sweetalert2';
 import Footer from '../components/footer';
 import Header from '../components/header';
@@ -29,15 +30,15 @@ const ProductSinglePage = {
             <div class="pb-4">
               <div class="flex gap-1">
                 <small class="font-medium">Availability: </small>
-                <small class="text-teal-600">In stock</small>
+                <small class="text-teal-600">${data.inStock > 0 ? 'In stock' : '<small class="text-red-500 text-sm">Out of stock</small>'}</small>
               </div>
               <div class="flex gap-1">
                 <small class="font-medium">Product Code: </small>
-                <small class="text-teal-600">FJK898</small>
+                <small class="text-teal-600">${data.id}</small>
               </div>
             </div>
             <p class="pb-4 font-san text-gray-500">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam delectus dicta laboriosam mollitia eaque omnis nostrum repellendus molestias voluptatibus earum recusandae quisquam error et, sequi consequatur placeat autem consectetur est.  
+              ${data.desc}
             </p>
 
             <div>
@@ -77,16 +78,35 @@ const ProductSinglePage = {
       e.preventDefault();
       const quantity = document.querySelector('#quantity').value;
       const { data } = await getProductById(id);
-      addToCart({ ...data, quantity: parseInt(quantity, 10) || 1 }, () => {
+      if (parseInt(quantity, 10) > parseInt(data.inStock, 10)) {
         Swal.fire({
           position: 'center',
-          icon: 'success',
-          title: 'Item has add to cart successfully',
+          icon: 'error',
+          title: 'Sorry, your input is larger than the available',
           showConfirmButton: false,
-          timer: 500,
+          timer: 800,
         });
-        reRender(Header, '.cart');
-      });
+      } else if (parseInt(data.inStock, 10) === 0) {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Sorry, item is out of stock',
+          showConfirmButton: false,
+          timer: 800,
+        });
+      } else {
+        const stock = parseInt(data.inStock, 10);
+        addToCart({ ...data, quantity: parseInt(quantity, 10) || 1, inStock: stock }, () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Item has add to cart successfully',
+            showConfirmButton: false,
+            timer: 500,
+          });
+          reRender(Header, '.cart');
+        });
+      }
     });
   },
 

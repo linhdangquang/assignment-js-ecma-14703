@@ -38,6 +38,7 @@ const ProductsAdmin = {
                 <th class="text-sm">Name</th>
                 <th class="text-sm">Category</th>
                 <th class="text-sm">Price</th>
+                <th class="text-sm">In stock</th>
                 <th class="text-sm">Img</th>
                 <th class="text-sm">Last Modified</th>
                 <th></th>
@@ -67,6 +68,7 @@ const ProductsAdmin = {
     `;
   },
   afterRender() {
+    NavAdmin.afterRender();
     const btns = document.querySelectorAll('.btn-del-product');
     btns.forEach((btn) => {
       const id = btn.dataset.product;

@@ -1,9 +1,10 @@
+import Toast from './toastAlert';
+
 const navDData = [
   { name: 'Dashboard', url: '/admin/dashboard', icon: 'ri-dashboard-line' },
   { name: 'Products', url: '/#/admin/products/products', icon: 'ri-handbag-line' },
   { name: 'Categories', url: '/admin/categories/categories', icon: 'ri-list-check-2' },
   { name: 'Settings', url: '/admin/settings', icon: 'ri-settings-2-line' },
-  { name: 'Logout', url: '/logout', icon: 'ri-logout-circle-line' },
 ];
 
 const NavAdmin = {
@@ -24,13 +25,29 @@ const NavAdmin = {
             </a>
         </li>
         `).join('')}
+        <li>
+            <a  class="logout-btn block items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800 cursor-pointer">
+                <span class="text-sm font-medium flex items-center pl-12"><i class="ri-logout-circle-line text-xl"></i>
+                    Logout
+                </span>
+            </a>
+        </li>
     </ul>
     </div>
 </nav>
     `;
   },
   afterRender() {
-
+    if (document.querySelector('.logout-btn')) {
+      document.querySelector('.logout-btn').addEventListener('click', () => {
+        localStorage.removeItem('user');
+        Toast.fire({
+          icon: 'info',
+          title: 'You have logout ',
+        });
+        document.location.href = '/';
+      });
+    }
   },
 };
 export default NavAdmin;

@@ -71,8 +71,8 @@ const CartPage = {
             <div class="pt-4 rounded-md shadow bg-gray-50">
               <h3 class="text-xl font-bold text-cyan-600 px-4">Order Summary</h3>
               <div class="flex justify-between px-4">
-                <span class="font-bold" id="subtotal">Subtotal</span>
-                <span class="font-bold">$35.25</span>
+                <span class="font-bold" >Subtotal</span>
+                <span class="font-bold" id="subtotal">$35.25</span>
               </div>
               <div class="flex justify-between px-4">
                 <span class="font-bold">Discount</span>
@@ -131,7 +131,6 @@ const CartPage = {
           });
         } else if (btn.classList.contains('btn-increase')) {
           cartFunc.increaseQuantity(id);
-          document.querySelector('#total').innerText = USDFormat(JSON.parse(localStorage.getItem('cart')).reduce((sum, item) => sum + (parseInt(item.price, 10) || 0), 0));
           reRender(CartPage, '#container');
         } else {
           cartFunc.removeItemCart(id, () => {

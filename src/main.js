@@ -5,6 +5,7 @@ import Navigo from 'navigo';
 import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
+import NotFoundPage from './utils/404page';
 // ADMIN
 import Dashboard from './pages/admin/dashboard';
 import ProductsAdmin from './pages/admin/products/products';
@@ -23,6 +24,11 @@ const print = async (content, id) => {
   container.innerHTML = await content.render(id);
   if (content.afterRender) content.afterRender(id);
 };
+
+router.notFound(() => {
+  print(NotFoundPage);
+  document.title = '404 Not Found';
+});
 
 router.on('/admin/*', () => {}, {
   before(done) {

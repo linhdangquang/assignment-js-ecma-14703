@@ -13,8 +13,8 @@ const Nav = {
             <a href="/products" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Shop</a>
             <div class="dropdown dropdown-hover dropdown-end">
                 <a href="/products" tabindex="0" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Categories</a>
-                <ul tabindex="0" class="p-2 -mt-4 mr-4 bg-gray-50 shadow menu dropdown-content rounded-box w-52 border-gray-200">
-                  ${categories.data.map((category) => `<li><a class="active:bg-blue-400">${category.name}</a></li>`).join('')}
+                <ul tabindex="0" class="p-2 -mt-4 mr-4 bg-purple-400 shadow menu dropdown-content  w-52 border-purple-500 border-2 rounded-box">
+                  ${categories.data.map((category) => `<li><a class="active:bg-purple-600 text-white">${category.name}</a></li>`).join('')}
                 </ul>
             </div>
             <a href="" class="text-gray-600 font-medium hover:text-purple-600 p-4 block">Blog</a>

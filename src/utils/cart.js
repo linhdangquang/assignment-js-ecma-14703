@@ -10,12 +10,28 @@ if (localStorage.getItem('cart')) {
 export const addToCart = (newProduct, next) => {
   const existingProduct = cart.find((product) => product.id === newProduct.id);
   if (!existingProduct) {
+    const inStock = newProduct.inStock - newProduct.quantity;
+    // eslint-disable-next-line no-param-reassign
+    newProduct.inStock = inStock;
     cart.push(newProduct);
   } else {
     existingProduct.quantity += parseInt(newProduct.quantity, 10);
+    if (existingProduct.inStock === 0) {
+      return alert('Bạn đã thêm tối đa số lượng còn lại của sản phẩm');
+    } if (existingProduct.inStock < newProduct.quantity) {
+      return Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Sorry, your input is larger than the available',
+        showConfirmButton: false,
+        timer: 800,
+      });
+    }
+    existingProduct.inStock -= parseInt(newProduct.quantity, 10);
   }
   localStorage.setItem('cart', JSON.stringify(cart));
   next();
+  return true;
 };
 
 export const increaseQuantity = (id) => {
@@ -100,5 +116,5 @@ export const emptyCart = async (next) => {
 export const updateTotalCart = (cartArr) => {
   const totalPrice = USDFormat(cartArr.reduce((sum, { price, quantity }) => sum + (parseInt(price, 10) * parseInt(quantity, 10) || 0), 0));
   document.querySelector('#total').innerText = totalPrice;
-  console.log(totalPrice);
+  document.querySelector('#subtotal').innerText = totalPrice;
 };

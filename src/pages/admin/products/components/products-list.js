@@ -22,6 +22,7 @@ const ProductsTable = {
     } return '';
   }).join('')}</td>
           <td>${USDFormat(product.price)}</td>
+          <td>${product.inStock}</td>
           <td><img  src="${product.img}" class="w-24"></td>
           <td>${product.createdAt}</td>
           <td>

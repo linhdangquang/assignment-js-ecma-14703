@@ -63,6 +63,7 @@ const Dashboard = {
     `;
   },
   afterRender() {
+    NavAdmin.afterRender();
     /* Chart initialisations */
     /* Line Chart */
     let config = {
