@@ -29,7 +29,7 @@ export const addToCart = (newProduct, next) => {
       return Swal.fire({
         position: 'center',
         icon: 'info',
-        title: 'Sorry, you has add max quantity of product',
+        title: 'Sorry, you has add max quantity',
         showConfirmButton: false,
         timer: 800,
       });

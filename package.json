@@ -23,9 +23,10 @@
     "axios": "^0.25.0",
     "chart.js": "^3.7.1",
     "daisyui": "^2.0.2",
+    "jquery": "^3.6.0",
+    "jquery-validation": "^1.19.3",
     "navigo": "^8.11.1",
     "remixicon": "^2.5.0",
-    "sweetalert2": "^11.4.0",
-    "validator": "^13.7.0"
+    "sweetalert2": "^11.4.0"
   }
 }

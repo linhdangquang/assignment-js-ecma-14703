@@ -24,3 +24,7 @@
     animation: normal transformIn 0.4s;
   }
 
+  .error:nth-child(3) {
+    @apply text-rose-600 alert alert-error text-sm rounded-lg py-2
+  }
+
