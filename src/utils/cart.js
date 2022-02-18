@@ -64,7 +64,6 @@ export const decreaseQuantity = async (id, next) => {
   const currentProduct = cart.find((item) => item.id === id);
   currentProduct.quantity -= 1;
   currentProduct.inStock += 1;
-  console.log(currentProduct);
   if (currentProduct.quantity < 1) {
     await Swal.fire({
       title: 'Are you sure?',
@@ -138,7 +137,7 @@ export const emptyCart = async (next) => {
 
 export const updateTotalCart = (cartArr) => {
   // const totalPrice = USDFormat(cartArr.reduce((sum, { price, quantity }) => sum + (parseInt(price, 10) * parseInt(quantity, 10) || 0), 0));
-  const totalPrice = USDFormat(sumBy(cartArr, (o) => parseInt(o.price, 10) * parseInt(o.quantity, 10)));
+  const totalPrice = USDFormat(sumBy(cartArr, (item) => parseInt(item.price, 10) * parseInt(item.quantity, 10)));
   document.querySelector('#total').innerText = totalPrice;
   document.querySelector('#subtotal').innerText = totalPrice;
 };
