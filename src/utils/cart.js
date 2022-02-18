@@ -43,13 +43,28 @@ export const addToCart = (newProduct, next) => {
 };
 
 export const increaseQuantity = (id) => {
+  const currentProduct = cart.find((item) => item.id === id);
+  console.log(currentProduct);
+  if (currentProduct.inStock === 0) {
+    return Swal.fire({
+      position: 'center',
+      icon: 'info',
+      title: 'Sorry, you has add max quantity',
+      showConfirmButton: true,
+      confirmButtonText: 'OK',
+    });
+  }
   cart.find((item) => item.id === id).quantity += 1;
+  currentProduct.inStock -= 1;
   localStorage.setItem('cart', JSON.stringify(cart));
+  return true;
 };
 
 export const decreaseQuantity = async (id, next) => {
   const currentProduct = cart.find((item) => item.id === id);
   currentProduct.quantity -= 1;
+  currentProduct.inStock += 1;
+  console.log(currentProduct);
   if (currentProduct.quantity < 1) {
     await Swal.fire({
       title: 'Are you sure?',
