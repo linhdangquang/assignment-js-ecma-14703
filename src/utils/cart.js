@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import Swal from 'sweetalert2';
+import sumBy from 'lodash.sumby';
 import USDFormat from './currencyFormat';
 
 let cart = [];
@@ -121,7 +122,8 @@ export const emptyCart = async (next) => {
 };
 
 export const updateTotalCart = (cartArr) => {
-  const totalPrice = USDFormat(cartArr.reduce((sum, { price, quantity }) => sum + (parseInt(price, 10) * parseInt(quantity, 10) || 0), 0));
+  // const totalPrice = USDFormat(cartArr.reduce((sum, { price, quantity }) => sum + (parseInt(price, 10) * parseInt(quantity, 10) || 0), 0));
+  const totalPrice = USDFormat(sumBy(cartArr, (o) => parseInt(o.price, 10) * parseInt(o.quantity, 10)));
   document.querySelector('#total').innerText = totalPrice;
   document.querySelector('#subtotal').innerText = totalPrice;
 };
