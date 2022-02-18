@@ -26,7 +26,13 @@ export const addToCart = (newProduct, next) => {
       });
     }
     if (existingProduct.inStock === 0) {
-      return alert('Bạn đã thêm tối đa số lượng còn lại của sản phẩm');
+      return Swal.fire({
+        position: 'center',
+        icon: 'info',
+        title: 'Sorry, you has add max quantity of product',
+        showConfirmButton: false,
+        timer: 800,
+      });
     }
     existingProduct.inStock -= parseInt(newProduct.quantity, 10);
   }

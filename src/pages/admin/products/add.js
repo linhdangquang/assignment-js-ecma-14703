@@ -16,7 +16,7 @@ const AddProductPage = {
         ${NavAdmin.render()}
         <div class="ml-4 rounded-l-2xl relative bg-white w-full">
           ${HeaderAdmin.render('add product')}
-          <div class="px-7 py-5">
+          <div class="px-7 py-5 flex gap-6">
             <div class="w-1/2 shadow-lg drop-shadow-md bg-slate-100 rounded">
               <form id="addProductForm"  enctype="multipart/form-data">
                 <div class="form-control p-4">
@@ -55,6 +55,10 @@ const AddProductPage = {
                   </div>
               </form>
             </div>
+            <div class="w-2/5 shadow-lg drop-shadow-md bg-slate-100 rounded" >
+                <h3 class="text-xl text-center py-4 text-gray-600">Image Preview</h3>
+                <img id="imgPreview" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png" alt="">
+            </div>
           </div>
 
           ${FooterAdmin.render()}
@@ -65,13 +69,18 @@ const AddProductPage = {
   afterRender() {
     NavAdmin.afterRender();
     const formAddProduct = document.querySelector('#addProductForm');
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('#imgPreview');
     const CLOUDINARY_PRESET_KEY = 'linhdqasm';
     const CLOUDINARY_API_URL = 'https://api.cloudinary.com/v1_1/linh-asm/image/upload';
+    image.addEventListener('change', () => {
+      imgPreview.src = URL.createObjectURL(image.files[0]);
+    });
     formAddProduct.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const image = document.querySelector('#image').files[0];
+      const file = image.files[0];
       const formData = new FormData();
-      formData.append('file', image);
+      formData.append('file', file);
       formData.append('upload_preset', CLOUDINARY_PRESET_KEY);
       LoadingRequest.loading();
       const { data } = await axios.post(CLOUDINARY_API_URL, formData, { headers: { 'Content-Type': 'application/form-data' } }).catch(() => {
@@ -84,10 +93,10 @@ const AddProductPage = {
         });
         LoadingRequest.stopLoading();
       });
-      console.log(data);
       addProduct({
         name: document.querySelector('#name').value,
         price: document.querySelector('#price').value,
+        inStock: document.querySelector('#inStock').value,
         categoryId: document.querySelector('#category').value,
         desc: document.querySelector('#desc').value,
         createdAt: currentDateTime,
