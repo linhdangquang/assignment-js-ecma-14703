@@ -1,5 +1,7 @@
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import $ from 'jquery';
 // eslint-disable-next-line no-unused-vars
 import validate from 'jquery-validation';
@@ -53,7 +55,13 @@ const EditProductPage = {
                 <div class="form-control p-4">
                   <label for="desc" class="block mb-2 text-md font-medium text-gray-900">Desc</label> 
                   <textarea type="text" id="desc" name="desc" class="shadow-sm  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full  h-24">${data.desc}</textarea>
-                </div> 
+                </div>
+                <div class="form-control p-4">
+                   <label for="desc" class="block mb-2 text-md font-medium text-gray-900">Desc Content</label> 
+                   <div id="editor" class="p-4">
+                        ${data.desc2}
+                   </div>
+                </div>
                 <div class="form-control p-4 pt-0 grid grid-cols-2 gap-4">
                   <button class="btn btn-primary pt-1">save</button> 
                   <a href="/admin/products/products" class="btn pt-1 bg-rose-600 border-0 hover:bg-rose-700">Cancel</a>
@@ -73,6 +81,20 @@ const EditProductPage = {
   },
   afterRender(id) {
     NavAdmin.afterRender();
+    let editor;
+    ClassicEditor
+      .create(document.querySelector('#editor'), {
+        cloudServices: {
+          tokenUrl: 'https://87213.cke-cs.com/token/dev/36e49b24a1a221f8523abc53088c3a1c6d4526fc2d53218c52e2a6bd0aae?limit=10',
+          uploadUrl: 'https://87213.cke-cs.com/easyimage/upload/',
+        },
+      })
+      .then((newEditor) => {
+        editor = newEditor;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     const image = document.querySelector('#image');
     const imgPreview = document.querySelector('#imgPreview');
     let imgUploadSrc = '';
@@ -124,6 +146,7 @@ const EditProductPage = {
 
       submitHandler() {
         async function editProduct() {
+          const editorData = await editor.getData();
           const file = image.files[0];
           if (file) {
             const formData = new FormData();
@@ -159,6 +182,7 @@ const EditProductPage = {
                 createdAt: currentDateTime,
                 categoryId: document.querySelector('#category').value,
                 img: imgUploadSrc || imgPreview.src,
+                desc2: editorData,
               }).then(() => {
                 LoadingRequest.stopLoading();
                 Toast.fire({

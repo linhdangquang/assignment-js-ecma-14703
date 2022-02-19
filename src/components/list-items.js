@@ -20,21 +20,21 @@ const ListItem = {
         </div>
         <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
           ${data.map((product) => /* html */`<div class="flex flex-col shadow-lg rounded-t-lg drop-shadow-xl bg-white">
-          <div class="p-4 px-6 pb-2 grow">
+          <div class="p-4 px-6 pb-2 grow flex items-center justify-center">
             <a href="/product/${product.id}">
               <img
                 src="${product.img}"
-                alt=""/>
+                alt="" />
             </a>
           </div>
-          <div class="p-4 px-6 pb-2">
+          <div class="px-6 pb-2">
             <h3 class="text-center"><a href="" class="text-lg font-semibold tracking-widest uppercase">${categories.data.map((category) => {
     if (category.id === product.categoryId) {
       return category.name;
     } return '';
   }).join('')}</a></h3>
-            <h4 class="text-center leading-4 text-gray-500 py-2 hover:text-gray-900 font-medium">
-              <a href ="/product/${product.id}" class="text-sm">${product.name}</a>
+            <h4 class="text-center leading-4 h-14 text-gray-500 py-2 line-clamp-2 hover:text-gray-900 font-medium">
+              <a href ="/product/${product.id}" class="text-sm ">${product.name}</a>
             </h4>
             <h3 class=" text-center"><a href="/product/${product.id}" class="text-lg text-teal-500 font-medium">${USDFormat(product.price)}</a></h3>
             <div class="flex flex-row my-3 items-center justify-center">

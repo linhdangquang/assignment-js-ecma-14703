@@ -1,84 +1,37 @@
 {
   "products": [
     {
-      "createdAt": "2022/02/18 20:28:29",
-      "name": "Sleek Wooden Mouse",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645190922/products/xtb7ru87pnxl4xyqcxfc.jpg",
-      "price": "20.00",
-      "desc": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart",
-      "id": "11",
+      "name": "LEVI'S - Áo Thun Nam Ss Standard/Regular",
+      "price": "30",
+      "inStock": "5",
       "categoryId": "1",
-      "inStock": "4"
+      "desc": "Được thành lập năm 1873, Levi’s® được thế giới biết đến & ngợi khen bởi những sản phẩm jeans đạt chuẩn mực trong thiết kế. Chúng trở thành những sản phẩm thành công nhất, được công nhận nhiều nhất. Với tư cách là nhà tiên phong đi đầu trong lĩnh vực jeans, thương hiệu Levi’s® tiếp tục khẳng định vị thế vững chắc trên đấu trường thời trang bằng dải sản phẩm mở rộng tuyệt đối vô cùng phong phú, đầy đủ cả những mẫu mã “nòng cốt” như dòng 501® lừng danh, dòng jeans tân thời với các form dáng hiện đại, đến các sản phẩm cao cấp.\n\n",
+      "desc2": "<h3>LEVI'S - Áo Thun Nam Ss Standard/Regular</h3><p>Được thành lập năm 1873, Levi’s® được thế giới biết đến &amp; ngợi khen bởi những sản phẩm jeans đạt chuẩn mực trong thiết kế. Chúng trở thành những sản phẩm thành công nhất, được công nhận nhiều nhất. Với tư cách là nhà tiên phong đi đầu trong lĩnh vực jeans<img>, thương hiệu Levi’s® tiếp tục khẳng định vị thế vững chắc trên đấu trường thời trang bằng dải sản phẩm mở rộng tuyệt đối vô cùng phong phú, đầy đủ cả những mẫu mã “nòng cốt” như dòng 501® lừng danh, dòng jeans tân thời với các form dáng hiện đại, đến các sản phẩm cao cấp.</p><figure class=\"image\"><img src=\"https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg\" srcset=\"https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_122 122w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_202 202w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_282 282w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_362 362w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_442 442w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_522 522w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_602 602w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_682 682w, https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/images/adfbf0d7612551f30e4725dc13d6af73f68923ebacb69c58.jpg/w_762 762w\" sizes=\"100vw\" width=\"762\" alt=\"\"><figcaption>Được thành lập năm 1873, Levi’s® được thế giới biết đến &amp; ngợi khen bởi những sản phẩm jeans đạt chuẩn mực trong thiết kế. Chúng trở thành những sản phẩm thành công nhất, được công nhận nhiều nhất. Với tư cách là nhà tiên phong đi đầu trong lĩnh vực jeans, thương hiệu Levi’s® tiếp tục khẳng định vị thế vững chắc trên đấu trường thời trang bằng dải sản phẩm mở rộng tuyệt đối vô cùng phong phú, đầy đủ cả những mẫu mã “nòng cốt” như dòng 501® lừng danh, dòng jeans tân thời với các form dáng hiện đại, đến các sản phẩm cao cấp.</figcaption></figure>",
+      "createdAt": "2022/02/19 20:02:35",
+      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645275967/products/lhno9fjlzpcdw3ilbbup.jpg",
+      "id": 1
     },
     {
-      "createdAt": "2022/02/17 20:03:22",
-      "name": "Practical Plastic Car",
-      "img": "http://placeimg.com/640/480/fashion",
-      "price": "50.00",
-      "desc": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles",
-      "id": "12",
-      "categoryId": "Av6M2l-",
-      "inStock": "55"
-    },
-    {
-      "name": "Mèo vàng siêu cấp",
-      "price": "123",
-      "desc": "Mèo này không ",
-      "createdAt": "2022/02/18 21:33:52",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1644417342/products/pxintm2rnckxrgruobsi.png",
-      "id": "7qfJx-j",
-      "categoryId": "1",
-      "inStock": "23"
-    },
-    {
-      "name": "Áo thun levis giá rẻ",
-      "price": "666",
-      "desc": "ko có gì",
-      "createdAt": "2022/02/17 20:03:39",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1644557768/products/wqjtnqeqmorfdhtmxyob.jpg",
-      "id": "gfnwZlV",
-      "categoryId": "RWcoM2D",
-      "inStock": "123"
-    },
-    {
-      "name": "Áo thun nam đen ",
-      "price": "1",
-      "desc": "- Mô tả sản phẩm: 100% cotton, chất liêu thun mềm mại, co giãn tốt, thoáng mát.\n- Nơi sản xuất: Vietnam\n- Chất liệu: cotton 100%\n- - Không dùng bột giặt có chất tẩy mạnh\n- - Tránh phơi dưới ánh nắng trực tiếp\n- - Ủi nhẹ ở nhiệt độ thấp.",
-      "createdAt": "2022/02/17 20:03:52",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1644770755/products/enyllfbplg8mcmeqiypc.jpg",
-      "id": "DrtvHAe",
-      "categoryId": "1",
-      "inStock": "23"
-    },
-    {
-      "name": "Áo thun big city boy hà nội",
-      "price": "99",
-      "categoryId": "RWcoM2D",
-      "desc": "- - Ai là tín đồ của nhạc rap thì sẽ không thể ca khuc rap Big city Boy đang nổi đình nổi đám thời gian gần đây . Nếu bạn yêu mến ca khúc này thì ngại gì không sắm cho mình một chiếc áo cực hot này . Hãy nhanh tay đặt hàng nhé vì số lượng có hạn thôi ạ!!",
-      "createdAt": "2022/02/17 20:04:01",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1644771167/products/oi5bdvz66aoi9nubk6ut.jpg",
-      "id": "1Yv4_YZ",
-      "inStock": "20"
-    },
-    {
-      "name": "Áo ba lỗ levis",
-      "price": "10",
+      "name": "LEVI'S - Áo Sơ Mi Nam Tay Dài Wovens Ls Regular",
+      "price": "50",
+      "inStock": "3",
       "categoryId": "77jA-ho",
-      "desc": "áo levis siêu đẹp siêu hay",
-      "createdAt": "2022/02/18 12:56:49",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645163790/products/ednmti1l0yqautsg9qe5.jpg",
-      "id": "YmuL-Ls",
-      "inStock": "44"
+      "desc": "LEVI'S - Áo Sơ Mi Nam Tay Dài Wovens Ls Regular",
+      "desc2": "<h3><strong>Chiếc áo sơ mi nam khá đẹp đến từ thương hiệu levis</strong></h3><blockquote><p>Áo đẹp nên mua</p></blockquote><ul><li>Tôi đã mua và sử dụng rất tịt</li></ul>",
+      "createdAt": "2022/02/19 20:17:20",
+      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645277571/products/baknopjbsfyusqxz7jzw.jpg",
+      "id": 2
     },
     {
-      "name": "  0sajd909adsj",
-      "price": "090",
-      "inStock": "800",
-      "categoryId": "1",
-      "desc": "sdiojasoijdias",
-      "createdAt": "2022/02/18 20:49:01",
-      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645192163/products/wcbadd81xs27qzibv8km.jpg",
-      "id": "fe0otF_"
+      "name": "Áo đẹp không mua thì phí ",
+      "price": "999",
+      "inStock": "8",
+      "categoryId": "RWcoM2D",
+      "desc": "Một chiếc áo đến từ xứ sở cưa bom",
+      "desc2": "<h2><i><strong>Mua đi anh chị ơi, áo đẹp áo đẹp!!!</strong></i></h2><figure class=\"image\"><img src=\"https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/animations/6ed629f67b68bbad6be4b352d81e85d5c69ce765b714cf74.gif\" srcset=\"https://87213.cdn.cke-cs.com/fgXKJ9Gtl3kdn2BoWiur/animations/6ed629f67b68bbad6be4b352d81e85d5c69ce765b714cf74.gif/w_130 130w\" sizes=\"100vw\" width=\"130\"></figure>",
+      "createdAt": "2022/02/19 20:36:08",
+      "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645277760/products/lcz4pecc6agkr5znsuat.jpg",
+      "id": 3
     }
   ],
   "categories": [

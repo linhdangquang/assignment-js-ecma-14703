@@ -67,6 +67,11 @@ const ProductSinglePage = {
             </div>
           </div>
         </div>
+        <div class="border-t-2">
+          <div class="ck-content">
+            ${data.desc2}
+          </div>
+        </div>
       </main>
       ${Footer.render()}
   </div>
