@@ -43,7 +43,7 @@ export const addToCart = (newProduct, next) => {
 };
 
 export const increaseQuantity = (id) => {
-  const currentProduct = cart.find((item) => item.id === id);
+  const currentProduct = cart.find((item) => item.id === parseInt(id, 10));
   console.log(currentProduct);
   if (currentProduct.inStock === 0) {
     return Swal.fire({
@@ -54,14 +54,15 @@ export const increaseQuantity = (id) => {
       confirmButtonText: 'OK',
     });
   }
-  cart.find((item) => item.id === id).quantity += 1;
+  cart.find((item) => item.id === parseInt(id, 10)).quantity += 1;
   currentProduct.inStock -= 1;
   localStorage.setItem('cart', JSON.stringify(cart));
   return true;
 };
 
 export const decreaseQuantity = async (id, next) => {
-  const currentProduct = cart.find((item) => item.id === id);
+  const currentProduct = cart.find((item) => item.id === parseInt(id, 10));
+  console.log(currentProduct);
   currentProduct.quantity -= 1;
   currentProduct.inStock += 1;
   if (currentProduct.quantity < 1) {
@@ -75,7 +76,7 @@ export const decreaseQuantity = async (id, next) => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        cart = cart.filter((item) => item.id !== id);
+        cart = cart.filter((item) => item.id !== parseInt(id, 10));
         Swal.fire(
           'Deleted!',
           'Your item has been deleted.',
@@ -104,7 +105,7 @@ export const removeItemCart = async (id, next) => {
         'Your file has been deleted.',
         'success',
       );
-      cart = cart.filter((item) => item.id !== id);
+      cart = cart.filter((item) => item.id !== parseInt(id, 10));
     }
   });
   localStorage.setItem('cart', JSON.stringify(cart));

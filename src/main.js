@@ -6,6 +6,7 @@ import HomePage from './pages/home';
 import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import NotFoundPage from './utils/404page';
+import SearchPage from './pages/search';
 // ADMIN
 import Dashboard from './pages/admin/dashboard';
 import ProductsAdmin from './pages/admin/products/products';
@@ -108,6 +109,11 @@ router.on({
     const { id } = data;
     print(EditProductPage, id);
     document.title = 'Edit Product';
+  },
+  '/search/:keyword': ({ data }) => {
+    const { keyword } = data;
+    print(SearchPage, keyword);
+    document.title = `Search by ${keyword}`;
   },
   '/admin/categories/categories': () => {
     print(CategoriesPage);

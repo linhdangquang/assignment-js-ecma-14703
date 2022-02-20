@@ -23,3 +23,8 @@ export const updateProduct = (product) => {
   const url = `/products/${product.id}`;
   return instance.patch(url, product);
 };
+
+export const searchProduct = (keyword) => {
+  const url = `/products?q=${keyword}`;
+  return instance.get(url);
+};
