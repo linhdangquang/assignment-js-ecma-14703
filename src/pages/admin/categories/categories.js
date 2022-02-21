@@ -1,7 +1,11 @@
+import Swal from 'sweetalert2';
 import NavAdmin from '../components/navD';
 import HeaderAdmin from '../components/headerD';
 import FooterAdmin from '../components/footerD';
 import CategoriesList from './components/categoriesList';
+import { deleteCategory } from '../../../api/categories';
+import LoadingRequest from '../components/loadingRequest';
+import reRender from '../../../utils/rerender';
 
 const CategoriesPage = {
   async render() {
@@ -62,6 +66,34 @@ const CategoriesPage = {
   },
   afterRender() {
     NavAdmin.afterRender();
+    const btns = document.querySelectorAll('.btn-del-category');
+    btns.forEach((btn) => {
+      const id = btn.dataset.category;
+      btn.addEventListener('click', () => {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3b82f6',
+          cancelButtonColor: '#f43f5e',
+          confirmButtonText: 'Yes, delete it!',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            LoadingRequest.loading();
+            deleteCategory(id).then(() => {
+              reRender(CategoriesPage, '#container');
+              LoadingRequest.stopLoading();
+              Swal.fire(
+                'Deleted!',
+                'Product has been deleted.',
+                'success',
+              );
+            });
+          }
+        });
+      });
+    });
   },
 };
 

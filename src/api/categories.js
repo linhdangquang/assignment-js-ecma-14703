@@ -14,3 +14,8 @@ export const getProductsByCategory = (id) => {
   const url = `/categories/${id}?_embed=products`;
   return instance.get(url);
 };
+
+export const deleteCategory = (id) => {
+  const url = `/categories/${id}`;
+  return instance.delete(url);
+};
