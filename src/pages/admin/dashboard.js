@@ -55,7 +55,6 @@ const Dashboard = {
                       </div>
                     </div>
                   </div>
-                  <div class="px-4"><h1>okokok</h1></div>
                 </div>
                 ${FooterAdmin.render()}
             </div>
