@@ -13,6 +13,10 @@
           "dest": "/"
       },
       {
+          "src": "/cart",
+          "dest": "/"
+      },
+      {
           "src": "/signup",
           "dest": "/"
       },
@@ -23,6 +27,10 @@
       
       {
           "src": "/product/(.*)",
+          "dest": "/"
+      },
+      {
+          "src": "/search/(.*)",
           "dest": "/"
       },
       {
