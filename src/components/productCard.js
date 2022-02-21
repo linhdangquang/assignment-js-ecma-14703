@@ -1,5 +1,11 @@
+import Swal from 'sweetalert2';
 import { getCategories } from '../api/categories';
 import USDFormat from '../utils/currencyFormat';
+import Toast from '../pages/admin/components/toastAlert';
+import { addToCart } from '../utils/cart';
+import reRender from '../utils/rerender';
+import Header from './header';
+import { getProductById } from '../api/products';
 
 const ProductCard = {
   async render(data) {
@@ -52,6 +58,29 @@ const ProductCard = {
         </div>
       </div>
     `;
+  },
+  afterRender() {
+    const btns = document.querySelectorAll('.btn-add');
+    btns.forEach((btn) => {
+      const { id } = btn.dataset;
+      btn.addEventListener('click', async () => {
+        const { data } = await getProductById(id);
+        if (parseInt(data.inStock, 10) === 0) {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Sorry, item is out of stock',
+            showConfirmButton: false,
+            timer: 800,
+          });
+        } else {
+          addToCart({ ...data, quantity: 1 }, () => {
+            Toast.fire({ icon: 'success', title: 'Product added to cart', timer: 1000 });
+            reRender(Header, '.cart');
+          });
+        }
+      });
+    });
   },
 };
 

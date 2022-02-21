@@ -28,6 +28,7 @@ const SearchPage = {
   },
   afterRender() {
     Nav.afterRender();
+    ProductCard.afterRender();
   },
 };
 
