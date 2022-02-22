@@ -9,12 +9,7 @@ const ProductsTable = {
     return /* html */`
         ${products.data.map((product, idx) => /* html */ `
         <tr class="hover p-2">
-          <th>
-            <label>
-              <input type="checkbox" class="checkbox checkbox-secondary focus:outline-0 focus:ring-pink-400 border-pink-300">
-            </label>
-          </th>
-          <td class="font-semibold text-gray-500">${idx + 1}</td>
+          <td class="font-semibold text-center text-gray-500">${idx + 1}</td>
           <td class="name-product">${product.name}</td>
           <td class="category-product">${categories.data.map((category) => {
     if (category.id === product.categoryId) {

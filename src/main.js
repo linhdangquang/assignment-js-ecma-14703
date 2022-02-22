@@ -1,5 +1,6 @@
 import 'remixicon/fonts/remixicon.css';
 import 'sweetalert2/dist/sweetalert2.min.css';
+import 'datatables.net-dt/css/jquery.dataTables.css';
 
 import Navigo from 'navigo';
 import HomePage from './pages/home';

@@ -25,6 +25,8 @@
     "axios": "^0.25.0",
     "chart.js": "^3.7.1",
     "daisyui": "^2.0.2",
+    "datatables.net": "^1.11.4",
+    "datatables.net-dt": "^1.11.4",
     "jquery": "^3.6.0",
     "jquery-validation": "^1.19.3",
     "lodash.orderby": "^4.6.0",

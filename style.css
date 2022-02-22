@@ -1,4 +1,36 @@
 
+#table_id_length {
+  @apply pl-4 py-4
+}
+#table_id_length >label >select {
+  @apply px-4 pl-[0.75rem];
+  background-position: right 0.3rem center;
+}
+.dataTables_wrapper .dataTables_filter input {
+  @apply focus:shadow-sm focus:ring-2 focus:ring-gray-300 text-stone-700 focus:bg-gray-200 border-0 outline-none bg-gray-100 !important
+}
+.dataTables_info{
+  @apply p-4 text-gray-600 hover:text-gray-900 !important
+}
+#table_id_paginate {
+  @apply pr-4
+}
+#table_id_wrapper {
+  @apply shadow-lg drop-shadow-sm
+}
+table.dataTable thead .sorting:last-child {
+  background-image: none !important;
+}
+table.dataTable.no-footer, table.dataTable thead th, table.dataTable thead td  {
+  border-bottom: 0 !important;
+}
+.dataTables_filter {
+  @apply py-4 pr-4
+}
+
+
+
+/* CKEDITTOR */
 .ck-editor__editable {
   min-height: 200px;
 

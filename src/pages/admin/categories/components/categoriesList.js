@@ -10,16 +10,11 @@ const CategoriesList = {
     sort.SortCategoriesDesc(data);
     return /* html */ `
       ${data.map((category, idx) => /* html */ `
-      <tr class="hover p-2">
-        <th>
-          <label>
-            <input type="checkbox" class="checkbox checkbox-secondary focus:outline-0 focus:ring-pink-400 border-pink-300">
-          </label>
-        </th>
+      <tr class="hover text-center">
         <td class="font-semibold text-gray-500">${idx + 1}</td>
         <td class="name-category">${category.name}</td>
         <td>${category.products.length}</td>
-        <td>
+        <td class="text-right">
           <div class="dropdown dropdown-end">
             <div tabindex="0" class="m-1 cursor-pointer hover:text-pink-600 text-xl"><i class="ri-more-2-fill"></i></div> 
             <ul tabindex="0" class="p-2 shadow menu dropdown-content border-gray-200 bg-base-100 rounded-box w-52">

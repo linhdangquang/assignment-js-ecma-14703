@@ -10,7 +10,6 @@ import { getProductById } from '../api/products';
 const ProductCard = {
   async render(data) {
     const categories = await getCategories();
-    console.log(categories.data);
     return /* html */`
     <div class="flex flex-col shadow-lg rounded-t-lg drop-shadow-xl bg-white">
       <div class="p-4 px-6 pb-2 grow flex items-center justify-center">
