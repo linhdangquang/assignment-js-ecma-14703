@@ -9,6 +9,7 @@ import SignUpPage from './pages/signup';
 import NotFoundPage from './utils/404page';
 import SearchPage from './pages/search';
 import CategoryProducts from './pages/productsCategory';
+import CheckoutPage from './pages/checkout';
 // ADMIN
 import Dashboard from './pages/admin/dashboard';
 import ProductsAdmin from './pages/admin/products/products';
@@ -19,6 +20,7 @@ import ProductSinglePage from './pages/single-product';
 import CartPage from './pages/cart';
 import CategoriesPage from './pages/admin/categories/categories';
 import AddCategoryPage from './pages/admin/categories/add';
+import OrdersAdmin from './pages/admin/orders/orders';
 
 const container = document.querySelector('#container');
 const router = new Navigo('/', { linksSelector: 'a', hash: true });
@@ -95,6 +97,10 @@ router.on({
     print(CartPage);
     document.title = 'Cart';
   },
+  '/checkout': () => {
+    print(CheckoutPage);
+    document.title = 'Checkout';
+  },
   '/admin/dashboard': () => {
     print(Dashboard);
     document.title = 'Dashboard';
@@ -128,6 +134,10 @@ router.on({
   '/admin/categories/add': () => {
     print(AddCategoryPage);
     document.title = 'Add Category';
+  },
+  '/admin/orders/orders': () => {
+    print(OrdersAdmin);
+    document.title = 'Orders';
   },
 });
 router.resolve();

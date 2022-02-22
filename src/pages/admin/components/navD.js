@@ -4,6 +4,7 @@ const navDData = [
   { name: 'Dashboard', url: '/admin/dashboard', icon: 'ri-dashboard-line' },
   { name: 'Products', url: '/#/admin/products/products', icon: 'ri-handbag-line' },
   { name: 'Categories', url: '/admin/categories/categories', icon: 'ri-list-check-2' },
+  { name: 'Orders', url: '/admin/orders/orders', icon: 'ri-order-play-line' },
   { name: 'Settings', url: '/admin/settings', icon: 'ri-settings-2-line' },
 ];
 

@@ -89,7 +89,7 @@ const CartPage = {
             </div>
           </div>
           <div class="my-4 flex justify-end">
-            <button class="w-1/4 py-2 text-center text-white bg-cyan-500 rounded-md shadow transition-colors hover:bg-cyan-600">
+            <button id="checkout" class="w-1/4 py-2 text-center text-white bg-cyan-500 rounded-md shadow transition-colors hover:bg-cyan-600">
               Proceed to Checkout
             </button>
           </div>
@@ -115,11 +115,25 @@ const CartPage = {
     if (localStorage.getItem('cart') && JSON.parse(localStorage.getItem('cart')).length > 0) {
       document.querySelector('#btn-empty-cart').addEventListener('click', () => {
         cartFunc.emptyCart(() => {
+          localStorage.removeItem('order');
           reRender(CartPage, '#container');
         });
       });
       const cartArr = JSON.parse(localStorage.getItem('cart'));
-      cartFunc.updateTotalCart(cartArr);
+      const totalPrice = cartFunc.updateTotalCart(cartArr);
+
+      document.querySelector('#total').innerText = USDFormat(totalPrice);
+      document.querySelector('#subtotal').innerText = USDFormat(totalPrice);
+      document.querySelector('#checkout').addEventListener('click', () => {
+        const order = {};
+        const products = JSON.parse(localStorage.getItem('cart'));
+        // eslint-disable-next-line no-param-reassign
+        products.forEach((item) => { delete item.inStock; });
+        order.products = products;
+        order.totalPrice = totalPrice;
+        localStorage.setItem('order', JSON.stringify(order));
+        document.location.href = '/checkout';
+      });
     }
     const btns = document.querySelectorAll('.btn-item');
     btns.forEach((btn) => {
