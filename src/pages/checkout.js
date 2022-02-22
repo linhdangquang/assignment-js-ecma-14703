@@ -176,6 +176,7 @@ const CheckoutPage = {
                     'We received your orders successfully!',
                     'success',
                   );
+                  document.location.href = '/';
                 });
             }
           });

@@ -1,4 +1,3 @@
-import Swal from 'sweetalert2';
 import dt from 'datatables.net';
 import $ from 'jquery';
 import NavAdmin from '../components/navD';
@@ -13,7 +12,7 @@ const OrdersAdmin = {
     <div class="container-fluid admin-container flex flex-row bg-gray-100 font-fira">
     ${NavAdmin.render()}
     <div class="ml-4 rounded-l-2xl relative bg-white w-full">
-            ${HeaderAdmin.render('Categories')}
+            ${HeaderAdmin.render('Orders')}
             <div class="px-7 py-5">
               <div class="mb-1 px-4 rounded-t-xl py-3 shadow-md border-b-2 border-gray-300 bg-slate-300 ">
               <div class="flex flex-wrap items-center">

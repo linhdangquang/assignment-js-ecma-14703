@@ -21,6 +21,7 @@ import CartPage from './pages/cart';
 import CategoriesPage from './pages/admin/categories/categories';
 import AddCategoryPage from './pages/admin/categories/add';
 import OrdersAdmin from './pages/admin/orders/orders';
+import DetailOrder from './pages/admin/orders/details';
 
 const container = document.querySelector('#container');
 const router = new Navigo('/', { linksSelector: 'a', hash: true });
@@ -138,6 +139,11 @@ router.on({
   '/admin/orders/orders': () => {
     print(OrdersAdmin);
     document.title = 'Orders';
+  },
+  '/admin/orders/details/:id': ({ data }) => {
+    const { id } = data;
+    print(DetailOrder, id);
+    document.title = 'Orders Detail';
   },
 });
 router.resolve();
