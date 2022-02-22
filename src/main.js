@@ -7,6 +7,7 @@ import LoginPage from './pages/login';
 import SignUpPage from './pages/signup';
 import NotFoundPage from './utils/404page';
 import SearchPage from './pages/search';
+import CategoryProducts from './pages/productsCategory';
 // ADMIN
 import Dashboard from './pages/admin/dashboard';
 import ProductsAdmin from './pages/admin/products/products';
@@ -84,6 +85,10 @@ router.on({
   '/product/:id': ({ data }) => {
     const { id } = data;
     print(ProductSinglePage, id);
+  },
+  '/category/:id': ({ data }) => {
+    const { id } = data;
+    print(CategoryProducts, id);
   },
   '/cart': () => {
     print(CartPage);
