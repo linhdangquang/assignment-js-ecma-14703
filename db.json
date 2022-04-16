@@ -21,7 +21,7 @@
       "createdAt": "2022/02/22 23:53:33",
       "img": "http://res.cloudinary.com/linh-asm/image/upload/v1645419535/products/k0dkbfkf1l0r04glpayg.jpg",
       "id": 5
-    },
+    }
   ],
   "categories": [
     {
@@ -51,7 +51,7 @@
       "email": "admin@gmail.com",
       "password": "$2a$10$63CfuW/7UKgIGMiRa3uNKeFyRRTbsXTKHFPsz6pLtL2Xdv.pYFEsm",
       "id": 3
-    },
+    }
   ],
   "orders": [
     {
@@ -73,6 +73,6 @@
       "totalPrice": 110,
       "id": 1,
       "status": "Received"
-    },
+    }
   ]
 }
