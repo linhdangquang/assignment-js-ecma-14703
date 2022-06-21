@@ -28,7 +28,7 @@
     "datatables.net": "^1.11.4",
     "datatables.net-dt": "^1.11.4",
     "jquery": "^3.6.0",
-    "jquery-validation": "^1.19.3",
+    "jquery-validation": "^1.19.4",
     "lodash.orderby": "^4.6.0",
     "lodash.sortby": "^4.7.0",
     "lodash.sumby": "^4.6.0",
